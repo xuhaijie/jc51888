@@ -1,0 +1,41 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<body class="main">
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">修改用户信息</div>
+                    <form name="form1" enctype="multipart/form-data" method="post" action="">
+                        <ul>
+                            <li>
+                                <label for="title">管理员：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="username" name="username" size="35" value="{$info.username}"  readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="img">密码：</label>
+                                <div class="item_cont">
+                                    <input type="password" class="txt" id="password" name="password" size="35"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">重复密码：</label>
+                                <div class="item_cont">
+                                    <input type="password" class="txt" id=repassword name="repassword" size="35" />
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

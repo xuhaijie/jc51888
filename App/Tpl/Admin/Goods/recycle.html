@@ -1,0 +1,89 @@
+<include file="Public:header" />
+<load href="__PUBLIC__/js/media/css/jquery.dataTables.min.css" />
+<load href="__PUBLIC__/js/media/js/jquery.dataTables.min.js" />
+<body class="main">
+  <div class="subTit">
+                <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">产品</a>&gt;<a href="javascript:;">产品列表</a>
+                </div>
+            </div>
+              <div class="content">
+                <div class="tableMod">
+                    <div class="tit">
+                        <a href="javascript:;" onclick="batch_del(this, 'Goods')"><i class="icon icon_del"></i>删除选中项</a>
+                        <a href="javascript:;" onclick="batch_recover(this, 'Goods')"><i class="icon icon_repair"></i>恢复选中项</a>
+                    </div>
+                    <table id="example">
+                        <thead>
+                            <tr>
+                                <th width="6%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                                <th width="10%">ID</th>
+                                <th width="9%">类别</th>
+                                <th width="33%">产品名称</th>
+                                <th width="9%">排序</th>
+                                <th width="15%">添加时间</th>
+                                <th width="25%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="list" id="vo" empty="$empty">
+                            <tr>
+                                <td align="center"><input class="checkbox-1" type="checkbox" value="{$vo.id}" name="id[]"></td>
+                                <td align="center">{$vo.id}</td>
+                                <td align="center"><if condition="$vo[cate_name]">{$vo.pid}---{$vo.cate_name}<else/>分类已删除</if></td>
+                                <td><a href="__ROOT__/product/{$vo.id}" target="_blank">{$vo.title}</a></td>
+                                <td align="center">{$vo.order}</td>
+                                <td align="center"><span class="col_ccc">{$vo.time}</span></td>
+                                <td align="center" class="op">
+                                	<a href="__GROUP__/Goods/edit/id/{$vo.id}"><i class="icon icon_edit"></i>修改</a>
+                                    <a href="javascript:;" onclick="del(this,'Goods',{$vo.id})";><i class="icon icon_x"></i>删除</a>
+                                    <a href="javascript:;" onclick="recover(this,'Goods',{$vo.id})";><i class="icon icon_repair"></i>恢复</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+            <!-- End tableMod -->  
+            <if condition="$list neq ''">
+                <script type="text/javascript">
+                    $(function() {
+                        $('#example').dataTable({
+                        	"aoColumns": [
+                        			    	{ "asSorting": [] ,"bSearchable": false},
+                        			      null,
+                        			      null,
+                        			      null,
+                        			      null,
+                        			      null,
+                        			      { "asSorting": [] ,"bSearchable": false}
+                        			    ],
+                            "bStateSave": true,
+                            "bPaginate": true,
+                            "iDisplayLength":100,
+                            "aLengthMenu": [[100,200,300,500,1000,-1], [100,200,300,500,1000,"全部"]],
+                            "sDom": '<"top"flip<"clear" and >>rt<"bottom"<"clear" and >><"clear">',
+                            "sPaginationType": "full_numbers",
+                            "oLanguage": {
+                            "sLengthMenu": "每页显示 _MENU_ 条记录",
+                            "sZeroRecords": "抱歉， 没有找到",
+                            "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                            "sInfoEmpty": "没有数据",
+                            "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                            "sSearch":"筛选(多个关键字用空格隔开):",
+                            "oPaginate": {
+                            "sFirst": "首页",
+                            "sPrevious": "前一页",
+                            "sNext": "后一页",
+                            "sLast": "尾页"
+                            },
+                            "sZeroRecords": "没有检索到数据",
+                            }
+                        });
+                    }());
+                </script> 
+            </if>    
+	</div>
+</body>
+</html>

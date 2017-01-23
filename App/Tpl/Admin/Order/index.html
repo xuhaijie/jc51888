@@ -1,0 +1,92 @@
+<include file="Public:header" />
+<load href="../Public/js/fancybox/jquery.fancybox-1.3.4.js" />
+<load href="../Public/js/fancybox/jquery.fancybox-1.3.4.css" />
+<load href="../Public/js/dataTables/demo_page.css" />
+<load href="../Public/js/dataTables/jquery.dataTables.css" />
+<load href="../Public/js/dataTables/jquery.dataTables.min.js" />
+<body class="main">
+  <div class="subTit">
+               <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">产品</a>&gt;<a href="javascript:;">查看订单</a>
+                </div>
+            </div>
+              <div class="content">
+                <div class="tableMod">
+                    <div class="tit"><a href="javascript:;" onclick="batch_del(this, 'Order')"><i class="icon icon_del"></i>删除选中项</a>
+                    <a style="color: red;" onclick="javascript:void(0)">点击订单状态可修改相应订单的状态</a>
+                    </div>
+                    <table id="example" class="table-css1">
+                        <thead>
+                            <tr>
+                                <th width="6%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                                <th>ID</th>
+                                <th>联系人</th>
+                                <th>电话</th>
+                                <th>地址</th>
+                                <th>产品名称</th>
+								<th>电子邮箱</th>
+                                <th>订购时间</th>
+                                <th>备注</th>
+                                <th>已收款</th>
+                                <th>订单状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="list" id="vo" empty="$empty">
+                            <tr>
+                                <td align="center"><input class="checkbox-1" type="checkbox" value="{$vo.id}" name="id[]"></td>
+                                <td align="center"><span class="col_ccc">{$vo.id}</span></td>
+								<td align="center">{$vo.name}</td>
+                                <td align="center">{$vo.tel}</td>
+                                <td><a href="__GROUP__/Order/moreaddr/id/{$vo.id}" class="mesmore">{$vo.add}</a></td>
+                                <td align="left" style="width: 200px;">
+                                <volist name="vo.info.ddxx" id='vo1'>
+                                <p>产品ID:<span style="color: red;">{$vo1.id}</span><p>
+                                <p>产品名:<span style="color: red;">{$vo1.name}</span>&nbsp;&nbsp;数量:<span style="color: red;">{$vo1.count}</span><p>
+                                <p>单价:<span style="color: red;">{$vo1.price}</span>
+                                </p><br> 
+                                </volist><span style="color: red;"></span>&nbsp;&nbsp;总金额:<span style="color: red;font-size: 18px;">{$vo.info.price}</span>元
+                                </td>
+                                <td align="center"><span class="col_ccc">{$vo.email}</span></td>
+                                <td align="center"><span class="col_ccc">{$vo.time}</span></td>
+                                <td align="center"><span class="col_ccc">{$vo.notes}</span></td>
+                                
+                                <td align="center">
+                                	<span class="col_ccc">
+		                                <if condition="$vo.paid eq '1'">
+											<font color="red">已收款</font>
+		                                <else/>
+											未收款
+		                                </if>
+	                                </span>
+                                </td>
+                                <td align="center"><span class="col_ccc">
+	                                <a href="__GROUP__/Order/more/id/{$vo.id}" class="mesmore">
+		                                <if condition="$vo.type eq ''">
+		                                                                                             收到订单
+		                                <else/>
+		                                    {$vo.type}
+		                                </if>
+		                            </a>
+                                </td>
+								<td align="center" class="op">
+								<!-- <a href="javascript:;" onclick="compelet(this,'Order',{$vo.id})";>完成</a>  -->
+	                                <a href="javascript:;" onclick="del(this,'Order',{$vo.id})";><i class="icon icon_x"></i>删除</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="page">{$page}</div>
+                </div>
+                <!-- End tableMod -->       
+	</div>
+	<script type="text/javascript">
+                    $(function() {
+                    	$(".mesmore").fancybox();
+                    });
+    </script>
+</body>
+</html>

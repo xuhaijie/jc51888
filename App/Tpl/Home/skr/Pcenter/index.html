@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<include file="Public:head" />
+</head>
+<body class="vip-user">
+	<div class="container">
+		<include file="nav"/>
+		<div class="row-fluid">
+			<div class="span2 well"><include file="pcenter" /></div>
+			
+			<div class="span9 well">
+				<div class="alert alert-info title">
+					<h4 class="">个人中心</h4>
+						<div class="clear2"></div>
+				</div>
+
+				<div>
+					<form action="" method="post" class="">
+						<table>
+							<tr>
+								<td>所属用户组：</td>
+								<td>{$groupinfo.name}</td>
+							</tr>
+							<tr>
+								<td>优惠额度：</td>
+								<td>{$groupinfo.faver}</td>
+							</tr>
+							<tr>
+								<td>用户昵称：</td>
+								<td>
+								<if condition="$user.nickname neq ''">
+								{$user.nickname}
+								<else/>
+								<input value="{$user.nickname}" name="nickname"
+									class="uf"  />
+								</if>
+								</td>
+							</tr>
+							<tr>
+								<td>电话号码：</td>
+								<td><input value="{$user.tel}" name="tel" class="uf" /></td>
+							</tr>
+							<tr>
+								<td>手机号码：</td>
+								<td><input value="{$user.mobi}" name="mobi" class="uf" /></td>
+							</tr>
+							<tr>
+								<td>QQ号码：</td>
+								<td><input value="{$user.qq}" name="qq" class="uf" /></td>
+							</tr>
+							<tr>
+								<td>邮箱地址：</td>
+								<td><input value="{$user.email}" name="email" class="uf" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input class="btn" type="submit" value="更新资料"
+									style="font-size: 14px;" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

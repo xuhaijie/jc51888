@@ -1,0 +1,18 @@
+
+<div class="fullSlide">
+    <div class="bd">
+        <ul>
+            <volist name="flash" id="vo">
+                <li style="background:url('__ROOT__/__UPLOAD__/{$vo.img}') no-repeat top center;"><a href="{$vo.link}"  alt="{$vo.title}"></a></li>
+            </volist>
+        </ul>
+    </div>
+    <span class="prev"></span>
+    <span class="next"></span>
+</div><!--fullSlide end-->
+<script>
+    var h1 = $(".utility").height();
+    var h2 = $(".header").height();
+    var height = h1+h2;
+    $(".fullSlide ul li").css({backgroundPositionY:height+"px"});
+</script>

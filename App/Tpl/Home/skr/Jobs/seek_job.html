@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<include file="Public:head" />
+</head>
+<body>
+	<div class="top_back absolute"></div>
+			<include file="Public:header" />
+	<div class="wrap">
+		<div class="main">
+			<div class="main2">
+				<div id="Mleft">
+		    		<include file="Public:sidebar" />
+			    </div>
+		       	<div id="Mright">
+					<div class="article">
+						<include file="Public:ntitle" />
+						<div class="right_main">
+						<form id="form1" action="__ROOT__/Jobs/add_job" method="POST">
+							<input name="is_mobile" type="hidden" value="0">
+							<table class="order">
+								<tr>
+									<td class="t_r">职位：</td>
+									<td>{$job.job}</td>
+								</tr>
+								<tr>
+									<td class="t_r">姓名：</td>
+									<td><input name="name" type="text" id="name" ></td>
+								</tr>
+								<tr>
+									<td class="t_r">性别：</td>
+									<td><input name="gender" type="radio" checked>&ensp;男&emsp;<input name="gender" type="radio">&ensp;女</td>
+								</tr>
+								<tr>
+									<td class="t_r">电话：</td>
+									<td><input name="tel" type="text" id="tel" ></td>
+								</tr>
+								<tr>
+									<td class="t_r">地址：</td>
+									<td><input name="add" type="text" id="addr" ></td>
+								</tr>
+								<tr>
+									<td class="t_r">邮箱：</td>
+									<td><input name="email" type="text" id="email" ></td>
+								</tr>
+								<tr>
+									<td class="t_r">备注：</td>
+									<td>
+										<textarea name="note" id="note" cols="70" rows="10"></textarea>
+										<input name="is_mobile" type="hidden" value="0">
+									</td>
+								</tr>
+								<tr>
+									<td class="t_r">验证码：</td>
+									<td>
+										<input type="text" id="captcha" name="captcha" maxlength="4" autocomplete="off" style="width:60px;vertical-align:middle;">
+										<img src="__ROOT__/Base/verify" alt="" title="点击更换验证码" onclick="this.src='__ROOT__/Base/verify?t='+Math.random();">
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+										<input type="hidden" name="a_id" value="{$job.id}">
+										<input id="submit" type="submit" value="提&emsp;交" class="btn">
+									</td>
+								</tr>
+							</table>
+						</form>
+						</div>
+					</div>
+				</div>
+				<div class="clear2"></div>
+			</div>
+		</div>
+		<div class="jjs">
+			
+			<script>
+				$(document).ready(function (){
+					$("#form1").submit(function (){
+						if($("#name").val() == ''){
+							alert('请添加姓名');
+							$("#name").focus();
+							return false;	
+						}
+						if($("#tel").val() == ''){
+							alert('请添加电话');
+							$("#tel").focus();
+							return false;	
+						}
+						if($("#addr").val() == ''){
+							alert('请添加地址');
+							$("#addr").focus();
+							return false;	
+						}
+						if($("#email").val() == ''){
+						 alert("请添加邮箱！");
+						 return false;
+						}
+						if(!$("#email").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/))
+						{
+						 alert("邮箱格式错误！");
+						 return false;
+						}
+						if($("#captcha").val() == ''){
+							alert('请添加验证码');
+							$("#captcha").focus();
+							return false;	
+						}
+					})	
+				})
+			</script>
+		</div>
+	</div>
+	<include file="Public:footer" />
+</body>	
+</html>

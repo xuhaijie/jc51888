@@ -1,0 +1,17 @@
+<div class="container_left">
+    <div class="class_neiye">
+        <h3>产品类别</h3>
+        <div class="class_nr">
+            <ul>
+                <volist name="type" id="vo" >
+                    <volist name="vo.son" id="vo1">
+                        <li class="li2"><a href="__APP__/product/type/{$vo1.id}">{$vo1.name}</a></li>
+                    </volist>
+                </volist>
+            </ul>
+            <img src="../Public/images/kefu.jpg" style="margin: 10px auto;display: block;;">
+            <h4>联系我们</h4>
+            <p class="contact_p">{$config['mobile']}</p>
+        </div>
+    </div>
+</div>

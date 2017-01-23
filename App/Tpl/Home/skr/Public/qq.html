@@ -1,0 +1,36 @@
+<style type=text/css>
+.KeFuDiv{
+    position: absolute;
+    height:296px;
+    width:150px;
+    z-index:99999;
+
+}
+.qq{width: 121px;height: 248px;background: url(../Public/images/qq_bg.jpg) no-repeat;}
+.close{float: right;}
+.qq_img{margin: 201px 0 0 19px;float: left;}
+</style>
+<script type="text/javascript" src="../Public/js/lrtkx.js"></script>
+<div style="top: 680px; right: 36px; position: absolute;" id="KeFuDiv" class="KeFuDiv">
+    <div class="qq">
+        <div class="close"><img src="../Public/images/close.jpg" usemap="#Map"  border="0" height="">
+        </div>
+        <div class="qq_img">
+            <a class="qq-btn" target="_blank"  href="tencent://message/?Menu=yes&uin={$config.kefu_qq.0.qq}& Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45"><img src="../Public/images/qq_img.jpg"></a>
+            <!--<a href="http://wpa.qq.com/msgrd?v=3&uin={$config.kefu_qq.0.qq}&Site=点击联系我们&Menu=yes" target="_blank"><img src="../Public/images/qq_img.jpg">-->
+            <!--</a>-->
+        </div>
+    </div>
+</div>
+<script>
+//初始位置
+gID("KeFuDiv").style.top = (document.documentElement.clientHeight - gID("KeFuDiv").offsetHeight)/2 +"px";
+gID("KeFuDiv").style.right ="-0px";
+//开始滚动
+ScrollDiv('KeFuDiv');
+$(function(){
+    $(".close").click(function(){
+        $(".qq").hide();
+    })
+})
+</script>

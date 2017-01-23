@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登陆</title>
+
+<script src="__ROOT__/App/Tpl/Home/kj/Public/js/jquery.js"></script>
+<script>
+function refreshVerify(url)
+{
+    timestamp=new Date().getTime();
+    $('#verifyImg').attr('src',url+timestamp);
+}
+</script>
+</head>
+<style type="text/css">
+	*{margin:0px;border:0px;padding:0px;}
+	body{font:12px "宋体";}
+	a{color:#000;text-decoration:none;}
+	a:hover{color:#F30;text-decoration:underline;}
+	input{padding:0px;margin:0px;}
+	.txtbox{border:1px solid #E79F50;height:20px;line-height:22px;width:120px;}
+	.bfont{font:700 12px "宋体"};
+	#login{width:400px;height:100%;overflow:hidden;margin:0px auto;}
+	#title{width:400px;height:25px;line-height:25px;color:#F60;font-weight:700;background-color:#FDEBD9;text-align:center;margin:0px auto;}
+	#loginbox{width:185px;height:60px;margin:10px 20px;float:left;display:inline;}
+	#btnlogin{width:55px;height:60px;float:right;margin:10px 30px 10px 5px;}
+	#forget{width:200px;margin:0px auto;height:25px;line-height:25px;text-align:center;}
+	#forget span{width:80px;display:inline;margin:0px 10px;}
+</style>
+<body>
+<div id="login">
+	<div id="title">个人登录后才能收藏，没有注册请先注册成为个人会员。</div>
+    <div style="width:320px;height:100px;margin:0px auto;">
+        <form name="form1" method="post" action="{:U('Login/login')}" id="form1">
+            <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
+                <tr style="height:30px">
+                    <td class="bfont">用户名：</td>
+                    <td><input class="txtbox" type="text" name="uname" /></td>
+                </tr>
+                <tr style="height:30px">
+                    <td class="bfont">密&nbsp;&nbsp;码：</td>
+                    <td><input class="txtbox" type="password" name="upass" /></td>
+                </tr>
+                <tr style="height:30px">
+                    <td class="bfont">
+                        <img id="verifyImg" onclick="refreshVerify('/z4.0/index.php/Login/verify/')" src="/z4.0/index.php/Login/verify/"></img>
+                    </td>
+                    <td><input class="txtbox" name="verify" id="verify" maxlength=4/></td>
+                </tr>
+            </table>
+            <div id="btnlogin">
+                <a href="#" onclick="$('#form1').submit()"><img src="__ROOT__/images/login.gif" width="55" height="55"/></a>
+            </div>
+        </form>
+    </div>
+    <div id="forget">
+        <span style="float:right;"><a href="#">没有注册？</a></span>
+    </div>
+</div>
+</body>
+</html>

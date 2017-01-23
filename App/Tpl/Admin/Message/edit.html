@@ -1,0 +1,85 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<body class="main">
+ 	<div class="subTit">
+                
+                <div class="tit">
+                    <a href="javascript:;">留言</a>&gt;<a href="javascript:;">留言信息</a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">留言详细</div>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <ul>
+                            <li>
+                                <label for="newsId">姓名：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="job" name="job" size="35" value="{$info.name}" readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">联系电话：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="num" name="num" size="35" value="{$info.tel}" readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">地址：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=end_time name="end_time" size="35" value="{$info.add}" readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="salary">电子邮箱：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="salary" name="email" size="35" value="{$info.email}" readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">留言时间</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="time" name="time" size="35" value="{$info.time}" readonly="readonly"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">留言IP：</label>
+                                <div class="item_cont">
+                                	<input type="text" class="txt" id="ip" name="ip" size="35" value="{$info.ip}" readonly="readonly" />
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <label for="newsCont">留言内容：</label>
+                                <div class="item_cont">
+                                    <textarea cols="88" rows="10" class="txt" id="content" name="content" readonly="readonly">{$info.content}</textarea>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">是否显示：</label>
+                                <div class="item_cont">
+                                    <input type="radio" class="txt" name="is_show" value='1' <if condition="$info.is_show eq '1'">checked</if> /> 显示&nbsp;
+                                    <input type="radio" class="txt" name="is_show" value='0' <if condition="$info.is_show eq '0'">checked</if> /> 不显示
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">回复留言：</label>
+                                <div class="item_cont">
+                                    <textarea cols="88" rows="10" class="txt" id="reply" name="reply">{$info.reply}</textarea>
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

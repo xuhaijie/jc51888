@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Public:head" />
+    <script type="text/javascript" src="../Public/js/highslide-with-gallery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/js/highslide.css" />
+    
+  <script type="text/javascript">
+hs.graphicsDir = '../Public/js/graphics/';
+hs.align = 'center';
+hs.transitions = ['expand', 'crossfade'];
+hs.outlineType = 'rounded-white';
+hs.fadeInOut = true;
+hs.addSlideshow({
+	interval: 5000,
+	repeat: false,
+	useControls: true,
+	fixedControls: 'fit',
+	overlayOptions: {
+		opacity: .75,
+		position: 'bottom center',
+		hideOnMouseOut: true
+	}
+});
+</script>
+<script type="text/javascript">
+var flag=false;
+function AXImg(ximg,a,b){
+var image=new Image();
+var iwidth = a; //图片宽度
+var iheight = b; //图片高度
+image.src=ximg.src;
+if(image.width>0 && image.height>0){
+flag=true;
+if(image.width/image.height>= iwidth/iheight){
+if(image.width>iwidth){ 
+ximg.width=iwidth;
+ximg.height=(image.height*iwidth)/image.width;
+}else{
+ximg.width=image.width; 
+ximg.height=image.height;
+}
+ximg.alt=image.width+"×"+image.height;
+}
+else{
+if(image.height>iheight){ 
+ximg.height=iheight;
+ximg.width=(image.width*iheight)/image.height; 
+}else{
+ximg.width=image.width; 
+ximg.height=image.height;
+}
+ximg.alt=image.width+"×"+image.height;
+}
+}
+} </script>
+</head>
+
+<body>
+	<include file="Public:header" />
+		<div class="wrap" id="pjax">
+		<div class="main">
+			<div class="main2">
+				<div id="Mleft">
+		    		<include file="Public:sidebar" />
+			    </div>
+		       <div id="Mright">
+					<div class="article">
+						<include file="Public:ntitle" />
+						<div class="right_main">
+							 <ul id="picUL">
+						 		<if condition="$list">
+            						<volist name="list" id="vo">
+										<div class="picturea" >
+			                            <div class="picture1a" class="highslide-gallery"><a href="__ROOT__/__UPLOAD__/{$vo.img}" class="highslide" onclick="return hs.expand(this)">
+											<img src="__ROOT__/__UPLOAD__/im_{$vo.img}" alt="{$vo.title}" border="0" onload="AXImg(this,270,210)" /></a>
+										<div class="highslide-caption"></div>	
+										</div>
+                           				 <div class="picture2a"><a href="__APP__/product/{$vo.id}">{$vo.title}</a></div></div>
+						 			</volist>
+								<else />
+								<span style="text-align:center">暂无产品...</span>
+							</if>
+						</ul>
+			        <div class="page">
+			             {$page}
+			        </div>  
+						</div>
+					</div>
+				</div>
+				<div class="clear2"></div>
+			</div>
+		</div>
+	</div>
+<include file="Public:footer" />
+
+</body>
+
+</html>

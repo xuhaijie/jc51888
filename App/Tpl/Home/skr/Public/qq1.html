@@ -1,0 +1,59 @@
+<style type=text/css>
+.qq{position: fixed; right: 4px; top: 35%; width: 60px; height: 180px; background: #fff; z-index: 999999; border-top: 1px solid #ddd;}
+.qq li{
+    width: 58px; height: 59px; border-width:0 1px 1px 1px; border-style: solid; border-color: #ddd;  overflow: hidden;
+}
+.wap{width:140px; height: 180px; display: none; position: absolute; left: -153px; top:-1px; background: #fff; padding: 6px; font-size: 12px; font-family: 'Verdana', 'Microsoft YaHei';color: #666; line-height: 20px; border: 1px solid #ddd; z-index: 998;text-align: center;}
+.wap img{width:140px;height:140px;}
+.qq_list{width: 140px; min-height: 40px;padding: 10px; background: #fff; position: absolute; top: -1px; left: -161px; display: none;
+    border: 1px solid #ddd; z-index: 998;}
+.qq1{background: url(../Public/images/qq.gif) no-repeat center #fff;display: block;width: 46px; height: 42px; padding: 8px 6px;}
+.qq2{line-height: 21px; height: 21px; display: inline-block; margin-bottom: 10px;}
+.mobile{display: block; width: 60px; height: 60px; background: url(../Public/images/backicon.gif) no-repeat center 0 #fff;}
+.mes{display: block; width: 60px; height: 60px; background: url(../Public/images/backicon.gif) no-repeat center -60px #fff;}
+</style>
+<script type="text/javascript" src="../Public/js/lrtkx.js"></script>
+ 
+<div class="qq">
+    <ul>
+        <li>
+            <a class="qq1" href="javascript:;"></a>
+            <div class="qq_list">
+                <volist name="config.kefu_qq" id="vo">
+                    <a class="qq2" href="tencent://message/?Menu=yes&uin={$config.kefu_qq.0.qq}& Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45"><img src="../Public/images/qqzx.gif" title="{$vo['qq']}" alt="{$vo['qq']}"></a>
+                </volist>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;" class="mobile"></a>
+            <div class="wap"><img src="../Public/images/wap.png" width="140px" height="140px">扫描访问网站</div>
+        </li>
+        <li><a href="__APP__/message" class="mes"></a></li>
+    </ul>
+</div>
+
+
+<script>
+$(document).ready(function (){
+    $('.qq li:eq(0)').hover(
+        function (){
+            $(".qq_list").fadeIn("fast");
+            $(this).css("border-left-color","#fff");
+        },
+        function () {
+            $(".qq_list").fadeOut("fast");
+            $(this).css("border-left-color","#ddd");
+        }
+    )
+    $('.qq li:eq(1)').hover(
+        function (){
+            $(".wap").fadeIn("fast");
+            $(this).css("border-left-color","#fff");
+        },
+        function () {
+            $(".wap").fadeOut("fast");
+            $(this).css("border-left-color","#ddd");
+        }
+    )
+})
+</script>

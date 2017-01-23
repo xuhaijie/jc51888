@@ -1,0 +1,70 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<script type="text/javascript">	
+		$(function(){
+			$("#form1").submit(function (){
+				if($("#title").val()!=''){
+				    if(confirm('确认输入参数配置正确?')){
+					    return true;
+				    }else{
+					    return false;
+				    }
+				}
+				else{
+					alert('新标题名不允许为空');
+					return false;
+				}
+			})
+		})
+</script>
+<body class="main">
+ 	<div class="subTit">
+               
+                <div class="tit">
+                    <a href="javascript:;">产品</a>&gt;<a href="javascript:;">{$title_type}产品</a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="formMod">
+                    <form action="" method="post" id="form1" enctype="multipart/form-data">
+                        <ul>
+                            <li>
+                                <label for="newsSort">产品类别：</label>
+                                <div class="item_cont">
+                                    <html:select options='category' selected='selected' name="pid" id="pid" style="txt" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">产品名前缀：</label>
+                                <div class="item_cont">                                           
+                                    <input type="text" class="txt" id="title" name="title" style="width:200px;" value="{$info.title}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">编号样式：</label>
+                                <div class="item_cont"><br>
+                                <input type="radio" name="pstyle" value="1" checked="checked"/>标题标题(001)<br><br>
+                                <input type="radio" name="pstyle" value="2"/>标题标题-001<br><br>
+                                <input type="radio" name="pstyle" value="3"/>标题标题_001<br><br>
+                                <input type="radio" name="pstyle" value="4"/>001_标题标题<br><br>
+                                <input type="radio" name="pstyle" value="5"/>(001)标题标题<br><br>
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 	<input type="hidden" id="img" name="img" value="{$info.img}" />
+                                 	<input type="hidden" id="time" name="time" value="{$info.time}" />
+                                 	<input type="hidden" id="click" name="click" value="{$info.click}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>  
+</body>
+</html>

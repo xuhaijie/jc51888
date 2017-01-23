@@ -1,0 +1,67 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<script type="text/javascript">	
+		$(function(){
+			$("#form1").submit(function (){
+				if($('#name').val()==''){
+					alert('用户组名不为空');
+					return false;
+				}
+				if($('#description').val()==''){
+					alert('用户组介绍不为空');
+					return false;
+				}
+				if($('#faver').val()==''){
+					alert('优惠额度不为空');
+					return false;
+				}
+				if($('#faver').val()>1 ||$('#faver').val()<0){
+					alert('优惠额度在0-1之间');
+					return false;
+				}
+				
+			})
+		})
+</script>
+<body class="main">
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">用户组</div>
+                    <form name="form1" id="form1" method="post" action="">
+                    <if condition="$goup.id neq ''">
+                    <input type="hidden" name="id" value="{$goup.id}">
+                    </if>
+                        <ul>
+                            <li>
+                                <label for="name">用户组名：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="name" name="name" size="35" value="{$goup.name}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="description">用户组介绍：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="description" name="description" size="35" value="{$goup.description}"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="faver">优惠额度(0-1之间)：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=faver name="faver" size="5" value="{$goup.faver}"/>
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

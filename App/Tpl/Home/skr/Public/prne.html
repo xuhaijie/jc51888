@@ -1,0 +1,12 @@
+<div class="pn alert alert-info">
+	<if condition="$pre">
+		<div class="pn-left">
+			<a aria-hidden="true" class="ipage" title="{$pre.title}" href="__ROOT__/<?php echo MODULE_NAME=='News'?'news':'product'; ?>/{$pre.id}#Mright" >
+				<b data-icon="&#xf489;"></b>
+				<span>{$pre.title}</span>
+			</a>
+		</div>
+	</if>
+	<if condition="$next"><div class="pn-right"><a aria-hidden="true" class="inext" title="{$next.title}" href="__ROOT__/<?php echo MODULE_NAME=='News'?'news':'product'; ?>/{$next.id}#Mright" ><b data-icon="&#xf488;"></b><span>{$next.title}</span></a></div></if>
+	<div class="clear2"></div>
+</div>

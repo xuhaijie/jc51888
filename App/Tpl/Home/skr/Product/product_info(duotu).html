@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Public:head" />
+
+</head>
+
+<body>
+<include file="Public:header" />
+<div class="main" id="Cpzs">
+    <div class="main2">
+        <script language="JavaScript">
+            var flag=false;
+            function AXImgaa(ximg){
+                var image=new Image();
+                var iwidth = 500; //图片宽度
+                var iheight = 373; //图片高度
+                image.src=ximg.src;
+                if(image.width>0 && image.height>0){
+                    flag=true;
+                    if(image.width/image.height>= iwidth/iheight){
+                        if(image.width>iwidth){
+                            ximg.width=iwidth;
+                            ximg.height=(image.height*iwidth)/image.width;
+                        }else{
+                            ximg.width=image.width;
+                            ximg.height=image.height;
+                        }
+                        ximg.alt=image.width+"×"+image.height;
+                    }
+                    else{
+                        if(image.height>iheight){
+                            ximg.height=iheight;
+                            ximg.width=(image.width*iheight)/image.height;
+                        }else{
+                            ximg.width=image.width;
+                            ximg.height=image.height;
+                        }
+                        ximg.alt=image.width+"×"+image.height;
+                    }
+                }
+            }
+
+        </script>
+        <div class="neiye">
+
+            <h2>品名：{$list['title']}</h2>
+            <span class="span1">类别：{$list[pid][name]?$list[pid][name]:$lid[title]}</span>
+            <span class="span2">成分：{$list['chengfen']}</span>
+            <span class="span3">门幅克重：{$list['kezhong']}</span>
+            <span class="span4">用途：{$list['yongtu']}</span>
+            <span class="span5">特点：{$list['tedian']}</span>
+            <div class="neiye-yd">
+                <volist name="config.kefu_qq" id="vo" offset='0' length='1'><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$vo.qq}&site=qq&menu=yes"><img src="../Public/images/zx.jpg" width="185" height="52" /></a></volist>
+            </div>
+            <div class="preview">
+                <div class="img_left">
+                    <div id="vertical" class="bigImg">
+                        <img src="__ROOT__/__UPLOAD__/{$list['img']}" alt="{$list['title']}"  alt="" id="midimg" />
+                        <div style="display:none;" id="winSelector"></div>
+                    </div><!--bigImg end-->
+                    <div class="scrollbutton smallImgUp disabled"></div>
+                    <div id="imageMenu">
+                        <ul>
+                            <volist name="list.imgs" id="vo">
+                                <li>
+                                    <img src="__ROOT__/__UPLOAD__/imgs/{$list['id']}/{$vo}">
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                    <div class="scrollbutton smallImgDown"></div>
+                </div><!--smallImg end-->
+                <div id="bigView" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
+
+            </div>
+            <div class="picTab"> </div>
+
+        </div>
+        <div class="neiyex">
+            <div id="Mleft">
+                <include file="Public:sidebar" />
+            </div>
+            <div id="Mright">
+                <div class="article info-1">
+                    <include file="Public:ntitle" />
+                    <div class="block-1">
+                        <div class="adc">
+                            <div class="content">{$list['content']}</div>
+                            <include file="Public:prne" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear2"></div>
+        </div>
+        <div class="clear2"></div>
+    </div>
+</div>
+<include file="Public:footer" />
+</body>
+
+</html>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        // 图片上下滚动
+        var count = $("#imageMenu li").length - 5; /* 显示 6 个 li标签内容 */
+        var interval = $("#imageMenu li:first").width();
+        var curIndex = 0;
+
+        $('.scrollbutton').click(function(){
+            if( $(this).hasClass('disabled') ) return false;
+
+            if ($(this).hasClass('smallImgUp')) --curIndex;
+            else ++curIndex;
+
+            $('.scrollbutton').removeClass('disabled');
+            if (curIndex == 0) $('.smallImgUp').addClass('disabled');
+            if (curIndex == count-1) $('.smallImgDown').addClass('disabled');
+
+            $("#imageMenu ul").stop(false, true).animate({"marginLeft" : -curIndex*interval + "px"}, 600);
+        });
+        // 解决 ie6 select框 问题
+        $.fn.decorateIframe = function(options) {
+            if ($.browser.msie && $.browser.version < 7) {
+                var opts = $.extend({}, $.fn.decorateIframe.defaults, options);
+                $(this).each(function() {
+                    var $myThis = $(this);
+                    //创建一个IFRAME
+                    var divIframe = $("<iframe />");
+                    divIframe.attr("id", opts.iframeId);
+                    divIframe.css("position", "absolute");
+                    divIframe.css("display", "none");
+                    divIframe.css("display", "block");
+                    divIframe.css("z-index", opts.iframeZIndex);
+                    divIframe.css("border");
+                    divIframe.css("top", "0");
+                    divIframe.css("left", "0");
+                    if (opts.width == 0) {
+                        divIframe.css("width", $myThis.width() + parseInt($myThis.css("padding")) * 2 + "px");
+                    }
+                    if (opts.height == 0) {
+                        divIframe.css("height", $myThis.height() + parseInt($myThis.css("padding")) * 2 + "px");
+                    }
+                    divIframe.css("filter", "mask(color=#fff)");
+                    $myThis.append(divIframe);
+                });
+            }
+        }
+        $.fn.decorateIframe.defaults = {
+            iframeId: "decorateIframe1",
+            iframeZIndex: -1,
+            width: 0,
+            height: 0
+        }
+        //放大镜视窗
+        $("#bigView").decorateIframe();
+        //点击到中图
+        var midChangeHandler = null;
+
+        $("#imageMenu li img").bind("click", function(){
+            if ($(this).attr("id") != "onlickImg") {
+                midChange($(this).attr("src").replace("small", "mid"));
+                $("#imageMenu li").removeAttr("id");
+                $(this).parent().attr("id", "onlickImg");
+            }
+        }).bind("mouseover", function(){
+            if ($(this).attr("id") != "onlickImg") {
+                window.clearTimeout(midChangeHandler);
+                midChange($(this).attr("src").replace("small", "mid"));
+            }
+        }).bind("mouseout", function(){
+            if($(this).attr("id") != "onlickImg"){
+                $(this).removeAttr("style");
+                midChangeHandler = window.setTimeout(function(){
+                    midChange($("#onlickImg img").attr("src").replace("small", "mid"));
+                }, 1000);
+            }
+        });
+        function midChange(src) {
+            $("#midimg").attr("src", src).load(function() {
+                changeViewImg();
+            });
+        }
+        //大视窗看图
+        function mouseover(e) {
+            if ($("#winSelector").css("display") == "none") {
+                $("#winSelector,#bigView").show();
+            }
+            $("#winSelector").css(fixedPosition(e));
+            e.stopPropagation();
+        }
+        function mouseOut(e) {
+            if ($("#winSelector").css("display") != "none") {
+                $("#winSelector,#bigView").hide();
+            }
+            e.stopPropagation();
+        }
+        $("#midimg").mouseover(mouseover); //中图事件
+        $("#midimg,#winSelector").mousemove(mouseover).mouseout(mouseOut); //选择器事件
+
+        var $divWidth = $("#winSelector").width(); //选择器宽度
+        var $divHeight = $("#winSelector").height(); //选择器高度
+        var $imgWidth = $("#midimg").width(); //中图宽度
+        var $imgHeight = $("#midimg").height(); //中图高度
+        var $viewImgWidth = $viewImgHeight = $height = null; //IE加载后才能得到 大图宽度 大图高度 大图视窗高度
+
+        function changeViewImg() {
+            $("#bigView img").attr("src", $("#midimg").attr("src").replace("mid", "big"));
+        }
+        changeViewImg();
+        $("#bigView").scrollLeft(0).scrollTop(0);
+        function fixedPosition(e) {
+            if (e == null) {
+                return;
+            }
+            var $imgLeft = $("#midimg").offset().left; //中图左边距
+            var $imgTop = $("#midimg").offset().top; //中图上边距
+            X = e.pageX - $imgLeft - $divWidth / 2; //selector顶点坐标 X
+            Y = e.pageY - $imgTop - $divHeight / 2; //selector顶点坐标 Y
+            X = X < 0 ? 0 : X;
+            Y = Y < 0 ? 0 : Y;
+            X = X + $divWidth > $imgWidth ? $imgWidth - $divWidth : X;
+            Y = Y + $divHeight > $imgHeight ? $imgHeight - $divHeight : Y;
+
+            if ($viewImgWidth == null) {
+                $viewImgWidth = $("#bigView img").outerWidth();
+                $viewImgHeight = $("#bigView img").height();
+                if ($viewImgWidth < 200 || $viewImgHeight < 200) {
+                    $viewImgWidth = $viewImgHeight = 800;
+                }
+                $height = $divHeight * $viewImgHeight / $imgHeight;
+                $("#bigView").width($divWidth * $viewImgWidth / $imgWidth);
+                $("#bigView").height("400px");
+            }
+            var scrollX = X * $viewImgWidth / $imgWidth;
+            var scrollY = Y * $viewImgHeight / $imgHeight;
+            $("#bigView img").css({ "left": scrollX * -1, "top": scrollY * -1 });
+            $("#bigView").css({ "top": 0, "left": 400});
+            return { left: X, top: Y };
+        }
+    });
+</script>
+
+
+
+
+
+/*-------内页左分类--------*/
+.neiye {position: relative;
+margin-top: 20px;
+float:left;
+width:1000px;
+height:477px;
+margin-bottom:15px;
+}
+.neiye-z {
+float:left;
+width:522px;
+height:395px;
+margin-right:35px;
+}
+.neiye-zimg {
+width:500px;
+height:373px;
+text-align:center;
+vertical-align:middle;
+background:#fff;
+overflow:hidden;
+display:table-cell;
+/* position:relative;  */
+*display: block;
+border:solid 1px #ccc;
+padding:10px;
+}
+.neiye-zimg img{
+vertical-align:middle;
+border:0;
+}
+.neiye-y {
+float:right;
+width:440px;
+height:381px;
+padding-top:14px;
+}
+.neiye-yt {
+float:left;
+width:445px;
+height:56px;
+border-bottom:dashed 1px #ccc;
+line-height:56px;
+font-family:"微软雅黑";
+font-size:18px;
+color:#000;
+overflow:hidden;
+}
+.neiye-yk {
+float:left;
+width:445px;
+height:200px;
+padding-top:15px;
+line-height:46px;
+font-family:"微软雅黑";
+font-size:14px;
+color:#000;
+}
+.neiye-yd {
+float:left;
+width:445px;
+height:70px;
+}
+.neiye-yx {
+float:left;
+width:445px;
+height:40px;
+}
+.neiyex {
+float:left;
+width:1000px;
+}
+
+.neiye{position: relative;
+h2{font-size: 42px;padding-bottom: 40px;border-bottom: 1px dashed #ccc;width: 530px;position: absolute;left: 440px;top: 0;}
+span{width: 500px;position: absolute;left: 420px;font-size: 16px;}
+.span1{top: 100px;}
+.span2{top: 140px;}
+.span3{top: 180px;}
+.span4{top:220px;}
+.span5{top:260px;}
+.neiye-yd{position: absolute;left: 420px;top: 340px;}
+}
+
+.picTab{ width: 559px;float: right;border-bottom: 1px dashed #ccc;
+
+ul{ width: 400px;height: 150px;position: relative;left: 10px;top: 27px;
+li{width: 96px;float: left;margin-right: 6px;position: relative;
+img{width: 96px;height: 96px;border: 1px solid #ccc;}
+p{text-align: center;width: 80px;}
+
+}
+.cur{
+img{border: 1px solid red;}
+}
+}
+
+.on{display: block;}
+section{display: none;position: absolute;left: 0 ;top: 0;
+
+}
+}

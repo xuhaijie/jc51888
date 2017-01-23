@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<title>用户注册</title>
+<load  href="__TMPL__Public/Js/bootstrap/css/bootstrap.min.css"/>
+<script src="__TMPL__Public/js/jquery.js"></script>
+<script>
+/**
+ * 验证码刷新
+ * @author wangyong
+ */
+function refreshVerify(url)
+{
+	timestamp=new Date().getTime();
+	$('#verifyImg').attr('src',url+timestamp);
+}
+$(function(){
+  $("#form1").submit(function (){
+    var $this=$(this),
+    bo=true;
+    $this.find('input[data-ts]').each(function(){
+        var $this=$(this);
+        if($.trim($this.val())==''){
+          alert($this.data('ts'));
+          bo=false;
+          return false;
+        }
+    });
+    return bo;
+    });
+});
+</script>
+<style type="text/css">
+body{
+background: url('../Public/image/login_bg.jpg');
+}
+.well{
+  background-color:rgba(187, 184, 180, 0.27);
+}
+#form1{position: absolute;
+left: 50%;
+top: 50%;}
+#form1 .control-label{width: 80px;}
+#form1 .controls{margin-left: 90px; text-align: left;}
+#form1 .btn{margin: 0 6px;}
+.input-prepend .add-on{margin-right:-5px;background-color: transparent;}
+#form1 legend{margin-bottom: 0;}
+#form1 .control-group{text-align: right;}
+#verify span{margin:0 -5px 0 0px;}
+#verify input{width: 154px;}
+#verify img{padding: 0px;
+width: 55px;
+height: 26px;cursor: pointer;
+margin-left: -5px;
+margin-right:0px; }
+</style>
+<script type="text/javascript">
+  $(function(){
+    var $form1=$("#form1");
+      $form1.css({'margin-left':-$form1.width()/2+'px',"margin-top":-$form1.height()/2+'px'})
+  })
+</script>
+</head>
+<body>    
+    <div style="margin:0 auto;width:80%;text-align:center">
+      <form name="form1" method="post" class="well form-horizontal" action="{:U('Login/register_action')}" id="form1">
+
+        <legend>会员注册</legend>
+        <div class="control-group">
+          <div class="input-prepend">
+            <span class="add-on">用户名</span>
+            <input data-ts="用户名不能为空!" placeholder="请输入用户名..." type="text" name="uname" id="uname">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+        
+        <div class="control-group">
+          <div class="input-prepend">
+            <span class="add-on">密　码</span>
+            <input data-ts="密码不能为空!" placeholder="请输入密码..." type="password" name="upass" id="upass">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="input-prepend">
+            <span class="add-on">重复密码</span>
+            <input data-ts="密码不能为空!" placeholder="请重新输入密码..." type="password" name="upass2">
+            <p class="help-block"></p>
+          </div>
+        </div>
+          
+        
+        <div class="control-group" id="verify">
+          <div class="input-prepend input-append">
+            <span class="add-on">验证码</span>
+            <input data-ts="验证码不能为空!" placeholder="请输入验证码..." type="text" name="verify"   maxlength='4' />
+            <img id="verifyImg" class="add-on" src='__GROUP__/Login/verify/' onclick="refreshVerify('__GROUP__/Login/verify/')" />
+            <p class="help-block"></p>
+
+          </div>
+          
+        </div>
+
+      <input type="submit" class="btn" value="注册"><input type="reset" class="btn" value="重置">已有账号？<a class="btn" href="{:U('Login/index')}">登陆</a>
+      </form>
+    </div>
+</body>
+</html>

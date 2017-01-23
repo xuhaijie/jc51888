@@ -1,0 +1,1799 @@
+/*
+skins available:
+	- common
+	- surprise
+	- imposing
+*/
+
+/* the container */
+.allinone_contentSlider {
+	position:relative;
+}
+.allinone_contentSlider img {
+	max-width:none;
+	max-height:none;
+}
+.allinone_contentSlider_list {
+	margin:0;
+	padding:0;
+	list-style:none;
+	display:none;
+}
+
+
+.allinone_contentSlider .contentHolderVisibleWrapper {
+	position:absolute;
+	overflow:hidden;
+}
+.allinone_contentSlider .contentHolder {
+	position:absolute;
+}
+.allinone_contentSlider .contentHolderUnit {
+	float:left;
+	display:block;
+}
+.mycanvas {
+	position:absolute;
+	top:8px;
+	right:10px;
+	z-index:10;
+}
+
+
+/***COMMON SKIN***/
+.allinone_contentSlider.common .bannerControls {
+	position:absolute;
+	left:0;
+	top:0;
+	/*z-index:1;*/
+	z-index:5;
+	width:100%;
+}
+
+.allinone_contentSlider.common .leftNav {
+	position:absolute;
+	left:0;
+	/*left:-35px;*/
+/*	top:50%;
+	margin-top:-63px; /* height/2 */
+	width:60px;
+	height:150px;
+	background:url(skins/common/leftNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.common .leftNav:hover {
+	background:url(skins/common/leftNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.common .rightNav {
+	position:absolute;
+	right:0;
+	/*right:-35px;*/
+/*	top:50%;
+	margin-top:-63px; /* height/2 */
+	width:60px;
+	height:150px;
+	background:url(skins/common/rightNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.common .rightNav:hover {
+	background:url(skins/common/rightNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.common .bottomNav {
+	position:absolute;
+	width:0px;
+	height:30px;
+	bottom:-35px;
+	z-index:3;
+	padding-left:2px;
+}
+.allinone_contentSlider.common .bottomNavButtonOFF {
+	float:left;
+	display:block;
+	width:33px;
+	height:30px;
+	background:url(skins/common/bottomNavOFF.png) 0 0 no-repeat;
+	padding-left:2px;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.common .bottomNavButtonON {
+	float:left;
+	display:block;
+	width:33px;
+	height:30px;
+	padding-left:2px;
+	background:url(skins/common/bottomNavON.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.common .bottomNavLeft {
+	position:absolute;
+	width:0px;
+	display:none;
+	background:#F00;
+	height:24px;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.common .bottomNavRight {
+	position:absolute;
+	width:0px;
+	display:none;
+	height:24px;
+	background:#F00;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.common .bottomOverThumb {
+	position:absolute;
+	width:88px;
+	height:106px;
+	background:url(skins/common/bottomOverThumbBg.png) 23px bottom no-repeat;
+	bottom:30px;
+	margin-left:-10px;
+}
+.allinone_contentSlider.common .bottomOverThumb img {
+	border:4px solid #000000;
+}
+.allinone_contentSlider.common .playOver {
+	position:absolute;
+	width:73px;
+	height:73px;
+	background:url(skins/common/play_overOFF.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.common .playOver:hover {
+	background:url(skins/common/play_overON.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+
+
+
+
+/***surprise SKIN***/
+.allinone_contentSlider.surprise .bannerControls {
+	position:absolute;
+	left:0;
+	top:0;
+	/*z-index:1;*/
+	z-index:5;
+	width:100%;
+}
+
+.allinone_contentSlider.surprise .leftNav {
+	position:absolute;
+	left:0;
+	/*left:-5px;*/
+	margin-top:-6px; /* height/2/*	 */
+	width:35px;
+	height:140px;
+	background:url(skins/surprise/leftNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.surprise .leftNav:hover {
+	background:url(skins/surprise/leftNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.surprise .rightNav {
+	position:absolute;
+	right:0;
+	/*right:-5px;*/
+	margin-top:-6px; /* height/2/*	 */
+	width:35px;
+	height:140px;
+	background:url(skins/surprise/rightNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.surprise .rightNav:hover {
+	background:url(skins/surprise/rightNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.surprise .bottomNav {
+	position:absolute;
+	width:0px;
+	height:24px;
+	bottom:-35px;
+	z-index:3;
+	padding-left:9px;
+}
+.allinone_contentSlider.surprise .bottomNavButtonOFF {
+	float:left;
+	display:block;
+	width:14px;
+	height:14px;
+	background:url(skins/surprise/bottomNavOFF.png) 0 0 no-repeat;
+	padding-left:9px;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.surprise .bottomNavButtonON {
+	float:left;
+	display:block;
+	width:14px;
+	height:14px;
+	padding-left:9px;
+	background:url(skins/surprise/bottomNavON.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.surprise .bottomNavLeft {
+	position:absolute;
+	width:0px;
+	display:none;
+	background:#F00;
+	height:24px;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.surprise .bottomNavRight {
+	position:absolute;
+	width:0px;
+	display:none;
+	height:24px;
+	background:#F00;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.surprise .bottomOverThumb {
+	position:absolute;
+	width:88px;
+	height:106px;
+	background:url(skins/surprise/bottomOverThumbBg.png) 23px bottom no-repeat;
+	bottom:27px;
+	margin-left:-25px;
+}
+.allinone_contentSlider.surprise .bottomOverThumb img {
+	border:4px solid #000000;
+}
+.allinone_contentSlider.surprise .playOver {
+	position:absolute;
+	width:73px;
+	height:73px;
+	background:url(skins/surprise/play_overOFF.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.surprise .playOver:hover {
+	background:url(skins/surprise/play_overON.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+/***imposing SKIN***/
+.allinone_contentSlider.imposing .bannerControls {
+	position:absolute;
+	left:0;
+	top:0;
+	/*z-index:1;*/
+	z-index:5;
+	width:100%;
+}
+
+.allinone_contentSlider.imposing .leftNav {
+	position:absolute;
+	left:0px;
+/*	top:50%;
+	margin-top:-63px; /* height/2 */
+	width:47px;
+	height:140px;
+	background:url(skins/imposing/leftNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.imposing .leftNav:hover {
+	background:url(skins/imposing/leftNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.imposing .rightNav {
+	position:absolute;
+	right:0px;
+/*	top:50%;
+	margin-top:-63px; /* height/2 */
+	width:47px;
+	height:140px;
+	background:url(skins/imposing/rightNavOFF.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+.allinone_contentSlider.imposing .rightNav:hover {
+	background:url(skins/imposing/rightNavON.png) 0 0 no-repeat;
+}
+.allinone_contentSlider.imposing .bottomNav {
+	position:absolute;
+	width:0px;
+	height:24px;
+	bottom:-35px;
+	z-index:3;
+	padding-left:9px;
+}
+.allinone_contentSlider.imposing .bottomNavButtonOFF {
+	float:left;
+	display:block;
+	width:14px;
+	height:14px;
+	background:url(skins/imposing/bottomNavOFF.png) 0 0 no-repeat;
+	padding-left:9px;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.imposing .bottomNavButtonON {
+	float:left;
+	display:block;
+	width:14px;
+	height:14px;
+	padding-left:9px;
+	background:url(skins/imposing/bottomNavON.png) 0 0 no-repeat;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.imposing .bottomNavLeft {
+	position:absolute;
+	width:0px;
+	display:none;
+	background:#F00;
+	height:24px;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.imposing .bottomNavRight {
+	position:absolute;
+	width:0px;
+	display:none;
+	height:24px;
+	background:#F00;
+	bottom:5px;
+	z-index:3;
+}
+
+.allinone_contentSlider.imposing .bottomOverThumb {
+	position:absolute;
+	width:88px;
+	height:106px;
+	background:url(skins/imposing/bottomOverThumbBg.png) 23px bottom no-repeat;
+	bottom:27px;
+	margin-left:-25px;
+}
+.allinone_contentSlider.imposing .bottomOverThumb img {
+	border:4px solid #000000;
+}
+.allinone_contentSlider.imposing .playOver {
+	position:absolute;
+	width:73px;
+	height:73px;
+	background:url(skins/imposing/play_overOFF.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+.allinone_contentSlider.imposing .playOver:hover {
+	background:url(skins/imposing/play_overON.png) 0 0 no-repeat;
+	display:none;
+	z-index:4;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***Text Styles***/
+
+
+.allinone_contentSlider_texts {
+	position:absolute;
+	z-index:2;
+	display: none;
+	width:100%;
+}
+.allinone_contentSlider_text_line {
+	position:absolute;
+}
+
+
+
+/****Common Texts***/
+
+.textElement11_common {
+	font: bold 26px/37px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+
+.textElement12_common {
+	font: bold 18px/25px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement13_common {
+	font: bold 16px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+/*******
+
+#topcommonTextBgLeft3 {
+	float:right;
+	width:540px;
+	margin-right:13px;
+	margin-top:0px;
+	padding:14px 5px 20px 5px;
+}
+
+
+
+#textElement3_common_list {
+	padding: 3px 15px 10px 15px;
+}
+
+
+#textElement3_common_list ul {
+	margin-left:-40px;
+	list-style: none;
+}
+
+#textElement3_common_list ul li {
+	color:#ffffff;
+	font: bold 14px/1.3em 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	padding:0 0 15px 45px;
+	background:url(skins/common/listIcon.png) top left no-repeat;
+}
+
+******/
+
+.textElement31_common {
+	font: bold 16px/33px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:0 4px 0 4px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement31_common {
+	font: bold 16px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement31_common a {
+	background:#000000;
+	font:'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 4px 1px 4px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement31_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+
+.textElement32_common {
+	font: bold 16px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement32_common a {
+	background:#000000;
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 3px 1px 3px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement32_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement33_common {
+	font: bold 16px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement33_common a {
+	background:#000000;
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 3px 1px 3px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement33_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+/****
+#topcommonTextBgLeft4 {
+	float:right;
+	width:540px;
+	margin-right:13px;
+	margin-top:0px;
+	padding:14px 5px 20px 5px;
+}
+
+
+#textElement4_common_list {
+	padding: 3px 15px 10px 15px;
+}
+
+
+#textElement4_common_list ul {
+	margin-left:-40px;
+	list-style: none;
+}
+
+#textElement4_common_list ul li {
+	color:#ffffff;
+	font: bold 14px/1.3em 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	padding:0 0 15px 45px;
+	background:url(skins/common/listIcon.png) top left no-repeat;
+}
+
+.textElement41_common a {
+	background:#000000;
+	font: bold 16px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement41_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement42_common a {
+	background:#000000;
+	font: bold 16px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement42_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement43_common a {
+	background:#000000;
+	font: bold 16px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement43_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+
+
+.textElement51_common {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:6px 2px 6px 15px;
+	color:#FFFFFF;
+}
+
+.textElement52_common {
+	font: bold 26px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 2px 6px 15px;
+	color:#FFFFFF;
+}
+
+****/
+
+
+.textElement51r_common {
+	font: bold 20px/32px 'Droid Sans', sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement51r_common a{
+	font: bold 'Droid Sans', sans-serif;
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+
+.textElement51r_common a:hover{
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement52r_common {
+	font: bold 38px/48px 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+
+/****
+
+.textElement21_common {
+	background:#000000;
+	font: bold 20px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#ffffff;
+}
+.textElement22_common {
+	background:#e4e4e4;
+	font: bold 16px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#131313;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.textElementx1_common {
+	background:#a32a19;
+	font: bold 28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:0px 15px 3px 15px;
+	color:#FFFFFF;
+}
+
+.textElementx2_common {
+	background:#512d5d;
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFF;
+}
+
+
+
+
+
+.textElement401_common {
+	font: bold 40px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFFFFF;
+}
+.textElement402_common {
+	font: bold 20px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFFFFF;
+}
+
+
+
+.textElement501_common a {
+	background:#512d5d;
+	font: bold 24px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFF;
+	text-decoration:none;
+}
+
+.textElement501_common a:hover {
+	background:#FFFFFF;
+	padding:6px 15px 6px 15px;
+	border:#512d5d 1px solid;
+	color:#512d5d;
+}
+
+.textElement502_common {
+	background:#a92c74;
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFF;
+}
+****/
+
+.textElement61_common {
+	font: bold 16px/23px 'Droid Sans', sans-serif;
+	text-decoration:none;
+}
+
+.textElement61_common a {
+	background:#000000;
+	font: bold 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement61_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement62_common {
+	font: bold 16px/23px 'Droid Sans', sans-serif;
+	text-decoration:none;
+}
+
+.textElement62_common a {
+	background:#000000;
+	font: bold 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement62_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement63_common {
+	font: bold 16px/23px 'Droid Sans', sans-serif;
+	text-decoration:none;
+}
+
+.textElement63_common a {
+	background:#000000;
+	font: bold 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement63_common a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+
+#topcommonTextBgLeft7 {
+	float:right;
+	width:470px;
+	margin-right:13px;
+	margin-top:0px;
+	padding:0px 15px 20px 5px;
+}
+
+
+
+#textElement7_common_list {
+	padding: 3px 15px 10px 15px;
+}
+
+
+#textElement7_common_list ul {
+	margin-left:-40px;
+	list-style: none;
+}
+
+#textElement7_common_list ul li {
+	color:#333333;
+	font: bold 14px/1.3em 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	padding:0 0 15px 45px;
+	background:url(skins/common/listIcon.png) top left no-repeat;
+}
+
+.textElement71_common {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+.textElement72_common {
+	font: bold 26px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+
+
+/****CommonFullWidth Texts***/
+
+
+
+.textElement11_commonFW {
+	font: bold 50px/52px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#333333;
+}
+
+.textElement12_commonFW {
+	background:#333333;
+	font: bold 22px/30px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#cccccc;
+	padding:1px 3px 1px 3px;
+	text-transform:uppercase
+}
+
+.textElement13_commonFW {
+	font: bold 22px/32px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+}
+
+
+
+.textElement31_commonFW {
+	font: bold 16px/33px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:0 4px 0 4px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement31_commonFW {
+	font: bold 16px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement31_commonFW a {
+	background:#000000;
+	font:'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 4px 1px 4px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement31_commonFW a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+
+.textElement32_commonFW {
+	font: bold 20px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement32_commonFW a {
+	background:#000000;
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 3px 1px 3px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement32_commonFW a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+.textElement33_commonFW {
+	font: bold 20px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+}
+
+.textElement33_commonFW a {
+	background:#000000;
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 3px 1px 3px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.textElement33_commonFW a:hover {
+	background:#FFFFFF;
+	color:#000000;
+}
+
+
+.textElement41_commonFW {
+	font: bold 50px/52px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#333333;
+}
+
+.textElement42_commonFW {
+	background:#97c03d;
+	font: bold 22px/30px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+	padding:1px 3px 1px 3px;
+	text-transform:uppercase
+}
+
+
+.textElement51r_commonFW {
+	font: bold 20px/32px 'Droid Sans', sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement51r_commonFW a{
+	font: bold 'Droid Sans', sans-serif;
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+
+.textElement51r_commonFW a:hover{
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement52r_commonFW {
+	font: bold 38px/48px 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+
+
+
+.textElement61_commonFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_commonFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_commonFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+.textElement62_commonFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_commonFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_commonFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+.textElement63_commonFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_commonFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_CommonFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+
+
+
+
+
+
+/****surprise Texts***/
+
+
+.textElement11_surprise {
+	font: bold 16px/21px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color:#333333;
+}
+.textElement12_surprise {
+	font: bold 50px/51px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+.textElement12_surprise a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement12_surprise a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement13_surprise {
+	font: bold 14px/19px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+}
+
+
+
+
+/******/
+.textElement31r_surprise {
+	font: bold 20px/32px 'Droid Sans', sans-serif;
+	color:#fa7b00;
+}
+
+.textElement31r_surprise a {
+	font: bold 'Droid Sans', sans-serif;
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement31r_surprise a:hover{
+	color:#5a5f83;
+	text-decoration:underline;
+}
+
+
+.textElement32r_surprise {
+	font: bold 48px/50px 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	color:#333333;
+}
+
+/******/
+
+
+
+
+.textElement21_surprise {
+	font: bold 16px/21px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color:#333333;
+}
+.textElement22_surprise {
+	font: bold 50px/51px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+.textElement22_surprise a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement22_surprise a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement23_surprise {
+	font: bold 14px/19px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+}
+
+
+.textElement31_surprise {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+.textElement32_surprise {
+	font: bold 26px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+
+
+.textElement61_surprise {
+	background:#ff780a;
+	font: bold 16px/18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_surprise a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_surprise a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+.textElement62_surprise {
+	background:#ff780a;
+	font: bold 16px/18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_surprise a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_surprise a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+.textElement63_surprise {
+	background:#ff780a;
+	font: bold 16px/18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_surprise a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_surprise a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+
+/****surpriseFullWidth Texts***/
+
+
+.textElement11_surpriseFW {
+	font: bold 26px/30px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color:#333333;
+}
+.textElement12_surpriseFW {
+	font: bold 88px/92px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+.textElement12_surpriseFW a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement12_surpriseFW a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement13_surpriseFW {
+	width:40%;
+	font: bold 22px/27px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+}
+
+.textElement21_surpriseFW {
+	xbackground:#ff780a;
+	font: bold 32px/40px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement21_surpriseFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement21_surpriseFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+.textElement22_surpriseFW {
+	font: bold 100px/110px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+	text-transform:uppercase;
+}
+
+.textElement22_surpriseFW a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement22_surpriseFW a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement23_surpriseFW {
+	font: bold 14px/19px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#333333;
+}
+
+
+.textElement31r_surpriseFW {
+	font: bold 40px/52px 'Droid Sans', sans-serif;
+	color:#fa7b00;
+}
+
+.textElement31r_surpriseFW a {
+	font: bold 'Droid Sans', sans-serif;
+	color:#fa7b00;
+	text-decoration:none;
+}
+
+.textElement31r_surpriseFW a:hover{
+	color:#5a5f83;
+}
+
+.textElement32r_surpriseFW {
+	font: bold 82px/114px 'Droid Sans', sans-serif;
+	text-transform:uppercase;
+	color:#333333;
+}
+
+
+
+.textElement31_surpriseFW {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+.textElement32_surpriseFW {
+	font: bold 26px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 2px 6px 15px;
+	color:#333333;
+}
+
+
+
+.textElement61_surpriseFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_surpriseFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement61_surpriseFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+.textElement62_surpriseFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_surpriseFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement62_surpriseFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+.textElement63_surpriseFW {
+	background:#ff780a;
+	font: bold 26px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_surpriseFW a {
+	background:#ff780a;
+	font: bold 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:1px 2px 1px 2px;
+	color:#000000;
+	text-decoration:none;
+}
+
+.textElement63_surpriseFW a:hover {
+	background:#000000;
+	color:#ff780a;
+}
+
+
+
+
+
+
+
+
+
+/****imposing Texts***/
+
+
+.textElement20_imposing {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 420px;
+    text-align: left;
+    width: 30%;
+}
+
+.textElement21_imposing {
+	font: bold 26px/36px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement22_imposing {
+	width:26%;
+	font: bold 16px/21px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement22_imposing a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement22_imposing a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement23_imposing {
+	width:21%;
+	font: bold 13px/17px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+
+.icon {
+	width:28px;
+	height:26px;
+	background:url(skins/imposing/listIcon.png) top left no-repeat;
+	padding:0;
+	margin-top:0px;
+}
+
+.float-block {
+	float:left;
+	display:block;
+}
+
+
+#topimposingTextBgLeft4 {
+	float:right;
+	width:255px;
+	height:347px;
+	background:#000000;
+	opacity:0.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+	margin-right:13px;
+	margin-top:0px;
+	padding:20px 15px 15px 20px;
+}
+
+
+#textElement4_imposing_list ul {
+	list-style: none;
+	margin-left:-40px;
+}
+
+#textElement4_imposing_list ul li {
+	color:#ffffff;
+	font: bold 14px/1.3em 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	padding:0 0 25px 40px;
+	margin-left:0px;
+	background:url(skins/imposing/listIcon.png) 0 0 no-repeat;
+}
+
+.textElement40_imposing {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 420px;
+    text-align: left;
+    width: 29%;
+}
+
+.textElement41_imposing {
+	font: bold 26px/36px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement42_imposing {
+	width:26%;
+	font: bold 16px/21px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement42_imposing a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement42_imposing a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+
+
+
+
+.textElement50_imposing {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 420px;
+    text-align: left;
+    width: 30%;
+}
+
+.textElement51_imposing {
+	font: bold 26px/36px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement52_imposing {
+	width:26%;
+	font: bold 16px/21px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement52_imposing a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement52_imposing a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement53_imposing {
+	width:21%;
+	font: bold 13px/17px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+
+
+.topimposingTextBgLeft6 {
+	color:#ffffff;
+	font: bold 13px/18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	width:28%;
+	background:#000000;
+	opacity:0.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+	margin-top:0px;
+	padding:2px 3px 2px 2px;
+}
+
+
+
+
+/****imposingFullWidth Texts***/
+
+
+.textElement20_imposingFW {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 600px;
+    text-align: left;
+    width: 26%;
+}
+
+.textElement21_imposingFW {
+	font: bold 36px/46px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement22_imposingFW {
+	width:26%;
+	font: bold 26px/31px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement22_imposingFW a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement22_imposingFW a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement23_imposingFW {
+	width:21%;
+	font: bold 23px/27px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+
+.textElement40_imposingFW {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 600px;
+    text-align: left;
+    width: 27%;
+}
+
+.textElement41_imposingFW {
+	font: bold 36px/46px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement42_imposingFW {
+	width:25%;
+	font: bold 18px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement42_imposingFW a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement42_imposingFW a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement50_imposingFW {
+    background: url("skins/imposing/textBg_transparency70.png") repeat scroll 0 0 transparent;
+    height: 600px;
+    text-align: left;
+    width: 27%;
+}
+
+.textElement51_imposingFW {
+	font: bold 36px/46px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#FFFFFF;
+}
+.textElement52_imposingFW {
+	width:26%;
+	font: bold 24px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.textElement52_imposingFW a {
+	font: 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#aa5eb1;
+	text-decoration:underline;
+}
+
+.textElement52_imposingFW a:hover {
+	color:#fa7b00;
+	text-decoration:underline;
+}
+
+.textElement53_imposingFW {
+	width:22%;
+	font: bold 18px/23px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+.topimposingTextBgLeft6FW {
+	color:#ffffff;
+	font: 22px/28px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	font-style:italic;
+	width:28%;
+	background:#000000;
+	opacity:0.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+	padding:2px 5px 2px 2px;
+}
+
+
+
+
+
+
+/****/
+
+.textElement11_classic {
+	font: bold 24px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#000000;
+}
+.textElement12_classic {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#000000;
+}
+
+.textElement21_classic {
+	font: bold 32px/1.0em 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#ffffff;
+}
+.textElement22_classic {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#ffffff;
+}
+
+.textElement31_classic {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:0px 15px 3px 15px;
+	color:#FFFFFF;
+}
+
+.textElement32_classic {
+	font: bold 26px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#FFFFFF;
+}
+
+.textElement33_classic {
+	font: bold 18px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	padding:4px 15px 6px 15px;
+	color:#FFFFFF;
+}
+
+
+.textElement41_classic {
+	font: bold 40px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#000000;
+}
+.textElement42_classic {
+	font: bold 20px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#000000;
+}
+
+
+
+.textElement51_classic a {
+	font: bold 28px 'Cabin', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.textElement51_classic a:hover {
+	color:#000000;
+}
+
+
+
+
+.textElement52_classic {
+	width:481px;
+	background:url(skins/classic/textBg_transparency.png);
+	font: 14px/1.3em 'Arial', Verdana, Helvetica, sans-serif;
+	padding:15px 15px 15px 15px;
+	color:#FFF;
+}
+
+.textElement52_classic a {
+	font: bold 14px 'Arial', Verdana, Helvetica, sans-serif;
+	color:#FF0000;
+	text-decoration:none;
+}
+
+.textElement52_classic a:hover {
+	color:#FFF;
+	text-decoration:none;
+}
+
+
+.textElement53_classic a {
+	background:#FF0000;
+	font: bold 16px 'Droid Sans', Verdana, Helvetica, sans-serif;
+	text-transform:uppercase;
+	padding:6px 15px 6px 15px;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.textElement53_classic a:hover {
+	background:#FFFFFF;
+	padding:6px 15px 6px 15px;
+	border:#FF0000 2px solid;
+	color:#512d5d;
+}
+
+/****/
+
+
+.hideElement {
+	display:none;
+}
+

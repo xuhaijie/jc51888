@@ -1,0 +1,167 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<script type="text/javascript">
+var id="{$info['id']?$info['id']:''}" || 0;//获取id		
+	$(function(){
+		$("#form1").submit(function (){
+			if($('#pid').val() == 1){
+				alert('请选择文章分类');
+				$("#pid").focus();
+				return false;
+			}
+			if($("#title").val() == ''){
+				alert('请填写文章标题');
+				$("#title").focus();
+				return false;
+			}				
+		});
+	});
+</script>
+<body>
+ 	<div class="subTit">
+        <include file="Public:search" />
+        <div class="tit">
+            <a href="javascript:;">文章</a>&gt;<a href="javascript:;">{$title_type}文章</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="formMod">
+            <div class="tit">{$title_type}文章</div>
+            <form name="form1" id="form1" enctype="multipart/form-data" method="post" action="">
+                <ul>
+                    <li>
+                        <label>文章ID:</label>
+                        <div class="item_cont">
+                            <input type="text" readonly class="txt" name="id" style="" value="{$info.id}" />
+                            <?php if(strpos($info['id'],",")){ ?>
+                                空白:<input type="checkbox" value="1" id="pdid" name="pdid" title="所见即所得"/>
+                            <?php }?>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <li>
+                        <if condition='$info.pid neq 0 or $single neq 1'>
+                        <label>文章类别：</label>
+                        <div class="item_cont">
+                             <select name="pid" id="pid">
+                                <?php if(strpos($info['id'],",")){ ?>
+                                    <option value="" "selected"}>------选择分类------</option>
+                                    <foreach name="category" item="vo">
+                                        <option value="{$key}">{$vo}</option>
+                                    </foreach>
+                                <?php }else{ ?>
+                                    <foreach name="category" item="vo">
+                                        <option value="{$key}" {$key==$selected?"selected":''}>{$vo}</option>
+                                    </foreach>
+                                <?php }?>
+                            </select>
+                            <span>(pid)</span>
+                        </div>
+                        <else/>
+                            <input type="hidden" id="category" name="category" value="0" />
+                        </if>
+                        <div class="clear2"></div>
+                    </li>
+                    <li>
+                        <label>文章标题：</label>
+                        <div class="item_cont">
+                            <input type="text" class="txt required" id="title" name="title" style="width:637px;" value="{$info.title}" />
+                            <span>(title)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <?php if(!strpos($info['id'],",")){ ?>
+                    <li>
+                        <label>文章图片：</label>
+                        <div class="item_cont">
+                            <input type="file" class="txt" id="img" name="img" size="35"/>
+                            <if condition='$info.img neq ""'><img src="__ROOT__/__UPLOAD__/in_{$info.img}" style="width: 65px;"><input type="button" value="删除图片" data-img="{$info.img}" id="del-img"></if>
+                            <span>(img)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <?php }?>
+                    <li>
+                        <label>关键字：</label>
+                        <div class="item_cont">
+                            <input type="text" class="txt" id='keywords' name="keywords" style="width:637px;" value="{$info.keywords}" />
+                            <span>(keywords)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <li>
+                        <label>载入页面：</label>
+                        <div class="item_cont">
+                            <input type="text" class="txt" id='www' name="www" style="width:637px;" value="{$info.www}" />
+                            <span>(www)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <li>
+                        <label>简介：</label>
+                        <div class="item_cont">
+                            <textarea name="description" id="description" style="width:637px;" rows="10" class="txt"  >{$info.description}</textarea>
+                            <span>(description)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <li>
+                        <label>文章内容：</label>
+                        <div class="item_cont">
+                              <include file="Public:content" />
+                              <span>(content)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                     <li>
+                        <label>排序：</label>
+                        <div class="item_cont">
+                            <input type="number" id="order" name="order"  min="0" step="1" value="<if condition="$info.order neq ''">{$info.order}<else />255</if>" class="txt"/>
+                            <span>(order)</span>
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                    <li class="push">
+                        <div class="item_cont">
+                         <if condition="$info.id neq ''">
+                            <input type="hidden" id="id" name="id" value="{$info.id}" />
+                            <input type="hidden" id="img" name="img" value="{$info.img}" />
+                            <input type="hidden" id="time" name="time" value="{$info.time}" />
+                            <input type="hidden" id="click" name="click" value="{$info.click}" />
+                         </if>
+                            <input type="submit" class="submit" value="提&nbsp;交" />
+                            <input type="reset" class="reset" value="重&nbsp;置" />
+                        </div>
+                        <div class="clear2"></div>
+                    </li>
+                </ul>
+            </form>
+        </div><!-- /.formMod -->
+    </div><!-- /.content -->
+</body>
+<script type="text/javascript">
+$(function(){
+    var $del_img=$("#del-img") || false;
+    if($del_img){
+        $del_img.click(function(){
+            var $this=$(this);
+            if(confirm('是否删除')){
+                $.ajax({
+                    type: "POST",
+                    url: "__GROUP__/Article/ajax_article_del",
+                    data: {'id':id,'img':$this.data("img")}
+                }).done(function( msg ) {
+                    if(msg['code']){
+                        $this.parent().find('img').remove();
+                        $this.remove();
+                    }else{
+                        alert(msg['data']['name']);
+                    }
+                });
+            }
+        });
+    }
+})
+    
+</script>
+</html>

@@ -1,0 +1,15 @@
+﻿Cart:购物车
+Company:简介
+Contact：联系我们
+Custom：不知道
+Empty：空白页
+Index：主页
+Login:会员登录
+Pcenter:会员管理
+Jobs：人才招聘
+Message：在线留言
+News：新闻中心
+Order：在线订单
+Product：产品展示
+Public：各种调用
+Self：不知道

@@ -1,0 +1,36 @@
+#version 1.0514
+CACHE MANIFEST
+#html
+index.php
+companyInfo.php
+contact.php
+products.php
+productInfo.php
+news.php
+newsInfo.php
+honor.php
+recruit.php
+#css
+css/jquery.mobile.css
+css/style.css
+#js
+js/jquery.mobile.js
+js/jquery-1.8.2.min.js
+js/swipe.js
+js/jcarousellite.mobie.js
+#image
+images/ajax-loader.gif
+images/contact.png
+images/icons-18-black.png
+images/icons-18-white.png
+images/icons-36-black.png
+images/icons-36-white.png
+images/msg.png
+images/sms.png
+images/tel.png
+uploads/201301220654228.jpg
+uploads/201301231601438.jpg
+
+NETWORK:
+*
+

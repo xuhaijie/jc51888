@@ -1,0 +1,104 @@
+<include file="Public:header" />
+<body class="main">
+  <div class="subTit">
+                <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">{$title}</a>&gt;<a href="javascript:;">{$title}分类</a>
+                </div>
+            </div>
+              <div class="content">
+                <div class="tableMod">
+                    <div class="tit">
+                        <a href="__GROUP__/Category/add/type/{$type}"><i class="icon icon_add"></i>添加分类</a>
+                        <a href="javascript:;" onclick="batch_del(this, 'Category')"><i class="icon icon_del"></i>删除选中项</a>
+                    </div>
+                    <table id="example" class="table-css1">
+                        <thead>
+                            <tr>
+                                <th width="13px"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                                <th width="50px">ID(id)</th>
+                                <th >分类名称(name)</th>
+                                <th width="80px">排序(order)</th>
+                                <th width="143px">关联的文章ID(aid)</th>
+                                <th width="100px" title="必须有这个页面(空=index),产品放在Product文件夹下,自助放在News下！">载入页面(www)</th>
+                                <th width="100px">自定义</th>
+                                <!-- <th width="10%">查看该类下的产品</th> -->
+                                <th width="310px">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           	<volist name="list" id="vo" empty="$empty">
+                           	<tr data-id="{$vo.id}">
+                                <td align="center"><if condition="$vo.parent neq '0' and $vo.id neq '4' and $vo.id neq '15' and $vo.id neq '5'" ><input  class="checkbox-1" type="checkbox" value="{$vo.id}" name="id[]"></if></td>
+                                <td align="center"><span class="col_ccc">{$vo.id}</span></td>
+                                <td data-xg="name" data-val="{$vo.jname}">{$vo.name}<a href="__ROOT__/<?php echo ACTION_NAME=='goods'?'product':'news'; ?>/type/{$vo.id}" target="_blank"  class="off">查看</a></td>
+                                <td align="center"  class="order" data-xg="order" data-val="{$vo.order}">{$vo.order}</td>
+                                <td align="center" data-xg="aid" data-val="{$vo.aid}"><span data-xs>{$vo.aid}</span><a class="off" href="{$vo.url}" >查看</a></td>
+                                <td align="center" data-xg="www" data-val="{$vo.www}">{$vo.www}</td>
+                                <td align="center" data-xg="sur" data-val="{$vo.sur}">{$vo.sur}</td>
+                               <!--  <td align="center"  class="order"><a href="{:U('/admin/goods/search_goods',array('pid'=>$vo[id]))}">查看</a></td>
+                                 --><td align="center" class="op" style="text-align: left;">
+                                    <a href="__GROUP__/<?php echo ACTION_NAME;?>/add/type/{$vo.id}"><i class="icon icon_add"></i>添加内容</a>
+                                    <a href="__GROUP__/<?php echo ACTION_NAME;?>#{$vo.id}---{$vo.name|strip_tags|ltrim='&nbsp;'}"><i class="icon icon_search"></i>查看分类下的内容</a>
+                                   	<a href="__GROUP__/Category/edit/id/{$vo.id}/type/{$vo.type}"  target="main"><i class="icon icon_edit"></i>修改</a>
+                                   	<if condition="$vo.parent neq '0' and $vo.id neq '4' and $vo.id neq '15' and $vo.id neq '5'">
+                                   	<a href="javascript:;" data-cz="sc" onclick="del(this,'Category',{$vo.id})";><i class="icon icon_x"></i>删除</a>
+									</if>
+                                </td>
+                            </tr>
+							</volist>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End tableMod -->       
+	</div>
+  <load href="__PUBLIC__/js/Messenger/css/messenger.css"/>
+  <load href="__PUBLIC__/js/Messenger/css/messenger-theme-future.css" />
+  <load href="__PUBLIC__/js/Messenger/js/messenger.min.js" />
+  <script type="text/javascript">
+  ;$(function(){
+    var $tbody=$("#example").find('tbody');
+     $tbody.on('blur','td[data-xg] input',function(){
+        var data={},
+        $this=$(this),
+        $xg_par=$this.parent(),
+        $td=$this.parentsUntil("td").parent(),
+        $tr=$this.parentsUntil("tr").parent();
+        if(!$td.length){ $td=$this.parent()}
+        if($td.data('val')!=$this.val()){
+          data['id']=$tr.data('id');
+          data[$td.data('xg')]=$this.val();
+          $.ajax({
+                type: "GET",
+                url: 'ajax_category',
+                data: data
+            }).done(function( msg ) {
+                $td.data('val',$this.val())
+                $xg_par.html($this.val())
+                 $.globalMessenger().post({
+                    message:msg
+                });
+            });
+          }else{
+             $xg_par.html($this.val())
+          }
+     });
+    $tbody.on('click','td[data-xg]',function(){
+       var $this=$(this);
+        if($this.find('input').length!=1){
+          var $inn=$(sprintf('<input type="text" data-xg class="txt" value="%s">',[$this.data('val')])),
+          $xs=$this.find('[data-xs]');
+          $inn.css({"width":"90%"});
+          if($xs.length){
+            $xs.html($inn);
+          }else{
+            $this.html($inn);
+          }
+          $inn.focus().select();
+        }
+    });
+  });
+  
+  </script>
+</body>
+</html>

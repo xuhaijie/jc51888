@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	var pics=null;
+	var links=null;
+	var texts=null;
+	<volist name="flash" id="vo">
+		imgUrl1="__ROOT__/__UPLOAD__/{$vo.img}"; /**图片路径**/ 
+		imgtext1="" /**图片标题**/ 
+		imgLink1=escape("__ROOT__/product"); /**图片链接**/ 
+		if (pics)
+		{
+			var pics=pics+"|"+imgUrl1;
+			var links=links+"|"+imgLink1;
+			var texts=texts+"|"+imgtext1;
+		}
+		else
+		{
+			pics=imgUrl1;
+			links=imgLink1;
+			texts=imgtext1;
+		}
+	</volist>
+	 var focus_width=1420;//FLASH宽度
+	 var focus_height=470;//FLASH高度
+	 var text_height=0;
+	 var swf_height = focus_height+text_height;
+	document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+	
+	document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="focus1.swf"><param name="quality" value="high"><param name="bgcolor" value="#F6F9FE">');
+	
+	document.write('<param name="menu" value="false"><param name=wmode value="opaque"><param name=wmode value="transparent">');
+	
+	document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">');
+	
+	document.write('<embed src="__ROOT__/focus1.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#F6F9FE" quality="high" width="'+ focus_width +'" height="'+ swf_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+	
+	document.write('</object>');	
+</script>

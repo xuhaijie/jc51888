@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<include file="Public:head" />
+</head>
+
+<body>
+<include file="Public:header" />
+<div class="main" id="Cpzs">
+	<div class="main2">
+		<script language="JavaScript">
+			var flag=false;
+			function AXImgaa(ximg){
+				var image=new Image();
+				var iwidth = 500; //图片宽度
+				var iheight = 373; //图片高度
+				image.src=ximg.src;
+				if(image.width>0 && image.height>0){
+					flag=true;
+					if(image.width/image.height>= iwidth/iheight){
+						if(image.width>iwidth){
+							ximg.width=iwidth;
+							ximg.height=(image.height*iwidth)/image.width;
+						}else{
+							ximg.width=image.width;
+							ximg.height=image.height;
+						}
+						ximg.alt=image.width+"×"+image.height;
+					}
+					else{
+						if(image.height>iheight){
+							ximg.height=iheight;
+							ximg.width=(image.width*iheight)/image.height;
+						}else{
+							ximg.width=image.width;
+							ximg.height=image.height;
+						}
+						ximg.alt=image.width+"×"+image.height;
+					}
+				}
+			}
+
+		</script>
+		<div class="neiye">
+			<div class="neiye-z">
+				<div class="neiye-zimg"><a target="_blank" href="__ROOT__/__UPLOAD__/{$list['img']}"><img src="__ROOT__/__UPLOAD__/{$list['img']}" alt="{$list['title']}" onload="AXImgaa(this)"/></a></div>
+			</div>
+			<div class="neiye-y">
+				<div class="neiye-yt"><span style="font-size:14px;"></span><strong>{$list['title']}</strong></div>
+				<div class="neiye-yk">
+					分类：{$list[pid][name]?$list[pid][name]:$lid[title]}<br/>
+					联系人：{$config['linkman']}<br/>
+					联系热线：{$config['mobile']}
+				</div>
+				<div class="neiye-yd">
+					<volist name="config.kefu_qq" id="vo" offset='0' length='1'><a target="_blank" href="tencent://message/?Menu=yes&uin={$config.kefu_qq.0.qq}& Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45"><img src="../Public/images/zx.jpg" width="185" height="52" /></a></volist>
+				</div>
+				<div class="neiye-yx"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+					<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+			</div>
+		</div>
+		<div class="neiyex">
+			<div id="Mleft">
+				<include file="Public:sidebar" />
+			</div>
+			<div id="Mright">
+				<div class="article info-1">
+					<include file="Public:ntitle" />
+					<div class="block-1">
+						<div class="adc">
+							<div class="content">{$list['content']}</div>
+							<include file="Public:prne" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear2"></div>
+		</div>
+		<div class="clear2"></div>
+	</div>
+</div>
+<include file="Public:footer" />
+</body>
+
+</html>

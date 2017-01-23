@@ -1,0 +1,62 @@
+<tagLib name="html"/>
+<include file="header"/>
+<script type="text/javascript">
+	$(function(){
+		$("#form1").submit(function (){
+			if($("#name").val() == ''){
+				alert('请填写分类名称');
+				$("#name").focus();
+				return false;
+			}	
+		})
+	})
+</script>
+<body class="main">
+ 	<div class="panel panel-default">
+        <!--头部go-->
+        <include file="Public:search" />
+        <div class="panel-heading">
+            <a href="javascript:;">{$column}</a>&gt;<a href="javascript:;">{$title}</a>
+        </div>
+        <!--头部end-->
+        <div class="panel-body">
+            <div class="formMod">
+                <div class="tit">{$title}</div>
+                <form action="" method="post" id="form1">
+                    <ul>
+                        <li>
+                            <label for="parent">父级分类：</label>
+                            <div class="item_cont">
+                            	<html:select options='parent' selected='sele' name="parent" id="parent"  style="txt" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="name">分类名称：</label>
+                            <div class="item_cont">
+                                <input type="text" class="txt" id="name" name="name" size="35" value="{$info.name}" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="order">排序：</label>
+                            <div class="item_cont">
+                                <input type="number" id="order" name="order"  min="0" max="255" step="1" value="<if condition="$info.order neq ''">{$info.order}<else />255</if>" class="txt"/>                                    
+                            </div>
+                        </li>
+                        <li class="push">
+                            <div class="item_cont">
+                            <if condition="$info.id neq ''">
+                            	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                            	<input type="hidden" id="type" name="type" value="{$info.type}" />
+                           	</if>
+                                <input type="submit" class="submit" value="提&nbsp;交" />
+                                <input type="reset" class="reset" value="重&nbsp;置" />
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+<include file="Skr:footer"/>
+</body>
+</html>

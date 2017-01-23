@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Public:head" />
+</head>
+
+<body>
+	<include file="Public:header" />
+<div class="wrap">
+	<div class="main">
+		<div class="main2">
+		    <div id="Mleft">
+		    		<include file="Public:sidebar" />
+			    </div>
+		       <div id="Mright">
+		       	<div class="article">
+		       		<include file="Public:ntitle" />
+			        <div class="news-img">
+			        	<if condition="$list">
+							<ul class="thumbnails row-fluid">
+								<li class="span11 off" ></li>
+					            <volist name="list" id="vo">
+					            	<li class="span11" >
+					            		<div class="thumbnail row-fluid">
+					            			<img alt="{$vo.title}" class="span3"  src="__ROOT__/__UPLOAD__/in_{$vo.img}">
+											<div class="caption span8"><h3><a href="{$vo.url}">{$vo.title}</a></h3>
+												{$vo.description}
+											</div>
+											<div class="clear2"></div>
+					            		</div>
+					            	</li>
+						        </volist>
+						    </ul>
+						    <div class="clear2"></div>
+						<else />
+							<div class="alert alert-error" style="text-align:center;width: 80%;margin: 0 auto;">暂无产品...</div>
+						</if>
+					</div>
+			        <div class="page">
+			             {$page}
+			        </div>  
+		        </div>
+	    	</div>
+	    	<div class="clear2"></div>
+	    </div>
+    </div>
+	
+</div>
+<include file="Public:footer" />
+</body>
+
+</html>

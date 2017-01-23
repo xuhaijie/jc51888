@@ -1,0 +1,63 @@
+<include file="Public:header" />
+<load href="../Public/js/fancybox/jquery.fancybox-1.3.4.js" />
+<load href="../Public/js/fancybox/jquery.fancybox-1.3.4.css" />
+<script>
+$(document).ready(function (){
+	$(".mesmore").fancybox();
+
+})
+</script>
+<body class="main">
+  <div class="subTit">
+                <div class="tit">
+                    <a href="javascript:;">留言</a>&gt;<a href="javascript:;">留言列表</a>
+                </div>
+            </div>
+              <div class="content">
+                <div class="tableMod">
+                    <div class="tit">
+                        <a href="javascript:;" onclick="batch_del(this, 'Message')"><i class="icon icon_del"></i>删除选中项</a>  
+                    </div>
+                     <div class="tit"> <a style="color: red;" onclick="javascript:void(0)">点击用户名称，可对用户留言进行编辑、回复。</a></div>
+                    <table id="example">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                                <th>ID</th>
+                                <th>姓名</th>
+                                <th>电话</th>
+                                <th>地址</th>
+                                <th>电子邮箱</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="list" id="vo" empty="$empty">
+                            <tr>
+                                <td align="center"><input class="checkbox-1" type="checkbox" value="{$vo.id}" name="id[]"></td>
+                                <td align="center"><span class="col_ccc">{$vo.id}</span></td>
+                                <td align="center"><a href="__GROUP__/Message/more/id/{$vo.id}" class="mesmore">{$vo.name}</a></td>
+                                <td>{$vo.tel}</td>
+                                <td align="center">{$vo.add}</td>
+                                <td align="center"><span class="col_ccc">  {$vo.email}</span></td>
+                                <td align="center" class="op">
+                                	<!--<a href="__GROUP__/Message/edit/id/{$vo.id}"><i class="icon icon_edit"></i>查看</a> -->
+                                	
+                                	<if condition="$vo['is_show'] eq '1' ">
+                                	<a href="javascript:;" onClick="quit_show(this,'Message',{$vo.id});"><i class="icon icon_x"></i>取消显示</a>
+                                	<else/>
+                                	<a href="javascript:;" onClick="add_show(this,'Message',{$vo.id});"><i class="icon icon_y"></i>首页显示</a>
+                                	</if>  
+                                	                       	
+                                    <a href="javascript:;" onClick="del(this,'Message',{$vo.id});"><i class="icon icon_x"></i>删除</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="page">{$page}</div>
+                </div>
+                <!-- End tableMod -->       
+	</div>
+</body>
+</html>

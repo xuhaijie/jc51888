@@ -1,0 +1,93 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<body class="main">
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">会员详细</div>
+                    <form action="{:U('admin/User/adminedit')}" method="post">
+                    <input type="hidden" name="id" value="{$info.id}">
+                        <ul>
+                            <li>
+                                <label for="newsId">ID：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="job"  size="35" value="{$info.id}"  readonly="readonly" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">添加时间：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="addtime" name="addtime" size="35" value="{$info.addtime}"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">用户名：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=username name="username" size="35" value="{$info.username}" readonly />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">用户组：</label>
+                                <div class="item_cont">
+                                    <select name="gid">
+		                                  <volist name="ugoups" id="vo">
+			                                  <if condition="$vo.slct eq '1'">
+			                                  	<option selected="selected" value="{$vo.id}">{$vo.name}</option>
+			                                  <else/>
+			                                  	<option value="{$vo.id}">{$vo.name}</option>
+			                                  </if>
+		                                  </volist>  
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">密码：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=password name="password" size="35" value="{$info.password}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="salary">昵称：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="nickname" name="nickname" size="35" value="{$info.nickname}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">电话号码</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="tel" name="tel" size="35" value="{$info.tel}"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">手机号码：</label>
+                                <div class="item_cont">
+                                	<input type="text" class="txt" id="mobi" name="mobi" size="35" value="{$info.mobi}"/>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <label for="newsCont">QQ：</label>
+                                <div class="item_cont">
+                                    <textarea cols="88" rows="6" class="txt" id="qq" name="qq" >{$info.qq}</textarea>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <label for="newsCont">邮箱：</label>
+                                <div class="item_cont">
+                                    <textarea cols="88" rows="6" class="txt" id="email" name="email" >{$info.email}</textarea>
+                                </div>
+                            </li>
+                           
+                            <li>
+                                <label for="newsCont"></label>
+                                <div class="item_cont">
+                                    <input type="submit" value="修改"/>
+                                </div>
+                            </li>
+                        </ul>
+                         <input type="hidden" id="id" name="id" value="{$info.id}" />
+                        </form>
+                </div>
+            </div>
+</body>
+</html>

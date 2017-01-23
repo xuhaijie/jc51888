@@ -1,0 +1,26 @@
+<load  href="__TMPL__Public/js/unslider/unslider.min.js"/><!--大图滚动效果-->
+<load  href="__TMPL__Public/js/Marquee/Marquee.js"/><!--大图滚动效果-->
+<load  href="__TMPL__Public/js/js.js"/>
+
+<!--图标左右切换效果- <i class = "btn-i-1"></i>----->
+<script>
+    $(function(){
+        $(".btn-i-1").each(function(){
+            $(this).wrap("<div class='btn1'><div class='btn2'></div></div>");
+            var btnI = $(this).clone();
+            $(this).parent().append(btnI);
+            var btnMarginTop = $(this).css("margin-top");
+            var btnWidth = $(this).width();
+            var btnHeight = $(this).height();
+            $(this).css({display:"block",position:"absolute",left:0,margin:0,padding:0,});
+            $(this).next(".btn-i-1").css({display:"block",position:"absolute",margin:0,padding:0,left:btnWidth});
+            $(this).parents(".btn1").css({width:btnWidth,height:btnHeight,overflow:"hidden",margin:"0 auto",marginTop:btnMarginTop});
+            $(this).parent(".btn2").css({position: "relative",left:0});
+            $(this).parents(".btn1").hover(function() {
+                $(this).find(".btn2").stop().animate({left: -btnWidth});
+            },function(){
+                $(this).find(".btn2").stop().animate({left:0});
+            })
+        })
+    })
+</script>

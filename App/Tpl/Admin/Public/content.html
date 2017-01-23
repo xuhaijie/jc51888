@@ -1,0 +1,15 @@
+
+<load href="__PUBLIC__/ueditor/ueditor.config.js"/>
+<load href="__PUBLIC__/ueditor/ueditor.parse.js"/>
+<load href="__PUBLIC__/ueditor/ueditor.all.min.js"/>
+<style type="text/css">
+    #content{width: 60%;min-height:300px;}
+</style>
+<script type="text/javascript">
+;$(function(){
+	var ue = UE.getEditor('content');
+});
+</script>
+<script type="text/plain" id="content" name="content">
+  {$info.content}
+</script>

@@ -1,0 +1,48 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<body class="main">
+	<div class="content">
+		<div class="tit">订单状态:</div>
+		<form action="{:U('admin/Order/upflag')}" method="post">
+			<input type="hidden" name="id" value="{$info.id}">
+			<ul>
+				<li><label for="newsId"></label>
+					<div class="item_cont">
+						已收款 : <input  type="checkbox" name="type[]" value="getmoney"
+						<if condition="$getmoney eq '1'">
+						 checked="checked"
+						</if>/><br>
+						已发货 ：<input  type="checkbox" name="type[]" value="send"
+						<if condition="$send eq '1'">
+						 checked="checked"
+						</if>/><br>
+						收货确认 ：<input  type="checkbox" name="type[]" value="verify"
+						<if condition="$verify eq '1'">
+						 checked="checked"
+						</if>/><br>
+						退货中 ：<input  type="checkbox" name="type[]" value="returns"
+						<if condition="$returns eq '1'">
+						 checked="checked"
+						</if>/><br>
+						退货确认 ：<input  type="checkbox" name="type[]" value="returnsverify"
+						<if condition="$returnsverify eq '1'">
+						 checked="checked"
+						</if>/><br>
+						已退款 ：<input  type="checkbox" name="type[]" value="backmoney"
+						<if condition="$backmoney eq '1'">
+						 checked="checked"
+						</if>/><br>
+						订单完成 ：<input  type="checkbox" name="type[]" value="ok"
+						<if condition="$ok eq '1'">
+						 checked="checked"
+						</if>/>
+					</div></li>
+				<li><label for="newsCont"></label>
+					<div class="item_cont">
+						<input type="submit" value="修改" />
+					</div></li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

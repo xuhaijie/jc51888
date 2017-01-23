@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<include file="Public:head" />
+<script>
+var url="__APP__";
+//删除订单
+function dlorder(id,e)
+{
+	if(confirm('是否确认删除！删除后不可恢复！'))
+	{
+		$.getJSON(url+"/Pcenter/ajax/t/dlorder/id/"+id, function(data){
+			//alert(data.data);//提示信息
+			if(data.status == '1')
+			{
+				$(e).parent().parent().html('');
+			}
+		})
+	}
+}
+</script>
+</head>
+<body class="vip-user">
+	<div class="container">
+		<include file="nav"/>
+		<div class="row-fluid">
+			<div class="span2 well"><include file="pcenter" /></div>
+
+			<div class="span9 well">
+				<div class="alert alert-info title">
+					<h4 class="left">个人订单</h4>
+					<div class="clear2"></div>
+				</div>
+				<table class="table table-condensed table-striped table-bordered">
+					<volist name="orders" id="vo">
+					  <tbody>
+					  	<tr>
+					  		<td colspan="2">订单号：{$vo.o_num}&nbsp;&nbsp;&nbsp;&nbsp;订购日期:{$vo.time}</td>
+					  		<td colspan="1"><a onclick="dlorder({$vo.id},this)" class="btn">删除订单</a></td>
+					  	</tr>
+					  	<volist name="vo.order" id="vo2">
+						    <tr>
+						      <td><a href="__APP__/product/{$vo2.goods.id}" target="_blank">名称：{$vo2.goods.title}</a></td>
+						      <td>单价：{$vo2.goods.price}</td>
+						      <td>数量：{$vo2.buynum}</td>
+						    </tr>
+					    </volist>
+					    <tr>
+					    	<td>支付状态：<if condition="$vo.paid eq '1'">已支付<else/>未支付</if></td>
+					    	<td>优惠额度:{$vo.favar}　　　优惠后物品总价格：{$vo.totalamount}元</td>
+							<td>订单状态:<if condition="$vo.type eq ''">收到订单<else/>{$vo.type}</if></td>
+					    </tr>
+					  </tbody>
+					</volist>
+				</table>
+
+			</div> <!-- /.span9 -->
+		</div> <!-- /.row-fluid -->
+	</div> <!-- /.container-fluid -->
+
+	<div class="clear2"></div>
+</body>
+
+</html>

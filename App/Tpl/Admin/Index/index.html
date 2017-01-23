@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>青峰网络智美云网站系统</title>
+	<load href="../Public/css/reset.css" />
+	<load href="../Public/css/base.css" />
+	<load href="../Public/js/jquery.js" />
+    <load href="__PUBLIC__/js/loads.js" />
+	<load href="../Public/js/common.js" />
+
+	<style>
+	body{hidden;overflow-y : hidden;}
+	</style>
+	<script type="text/javascript">
+    $(function(){
+		$("#main").load(function(){
+			//$(this).height( $(this).contents().find("body").height());
+			//resetLayout();
+		})
+    })
+    </script>
+</head>
+<body>
+    <div class="layout"  id="layout">
+        <div class="sidebar" id="lay_sidebar">
+            <h1 id="logo"><a href="__ROOT__/Admin" >网站管理系统</a></h1>
+            <if condition="$_SESSION.left_menu neq 'system'">
+            <include file="Public:menu" />
+            <else/>
+            <include file="Public:new_menu" />
+            </if>
+            <div class="copyright" id="copyright">青峰网络智美云整站系统<br />Powered by <a href="http://www.myqingfeng.cn" target="_blank" >myqingfeng.cn</a></div>
+        </div>
+    
+        <div class="lay_main" id="lay_main">
+            <div class="topMenu" id ="topMenu">
+                <a href="javascript:;" onclick="logout('__GROUP__/Login/logout');" class="exit">安全退出</a>
+                <strong>您好，<a href="__GROUP__/User/edit/{$user_id}" class="yellow" target="main">{$username}</a>欢迎使用青峰智美云整站系统</strong>
+				<a href="__APP__/"  class="update" target="_blank">网站首页</a>
+                <!-- <a href="__GROUP__/System/clearcache" class="update" target="main">更新缓存</a> -->
+            </div>
+            <iframe id="main" name="main" src="{$template}" frameborder="0" ></iframe>
+        </div>
+        <a class="side_show" id="side_show" href="javascript:;"></a>
+    </div>
+</body>
+</html>

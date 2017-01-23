@@ -1,0 +1,48 @@
+<include file="Public:header" />
+<body class="main">
+  <div class="subTit">
+                <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">{$title}</a>&gt;<a href="javascript:;">{$title}分类</a>
+                </div>
+            </div>
+              <div class="content">
+                <div class="tableMod">
+                    <div class="tit">
+                        <a href="__GROUP__/Category/add/type/{$type}"><i class="icon icon_add"></i>添加分类</a>
+                        <a href="javascript:;" onclick="batch_del(this, 'Category')"><i class="icon icon_del"></i>删除选中项</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="6%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
+                                <th width="10%">ID</th>
+                                <th width="40%">分类名称</th>
+                                <th width="8%">排序</th>
+                                <th width="10%">查看该类下的产品</th>
+                                <th >操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           	<volist name="list" id="vo" empty="$empty">
+                           	<tr>
+                                <td align="center"><if condition="$vo.parent neq '0' and $vo.id neq '4'"><input type="checkbox" value="{$vo.id}" name="id[]"></if></td>
+                                <td align="center"><span class="col_ccc">{$vo.id}</span></td>
+                                <td><if condition="$vo.parent neq '0'"><a href="__ROOT__/custom/t/{$vo.id}" target="_blank">{$vo.name}</a><else />{$vo.name}</if></td>
+                                <td align="center"  class="order">{$vo.order}</td>
+                                <td align="center"  class="order"><a href="{:U('/admin/goods/search_goods',array('pid'=>$vo[id]))}">查看</a></td>
+                                <td align="center" class="op">
+                                   	<a href="__GROUP__/Category/edit/id/{$vo.id}/type/{$vo.type}"  target="main"><i class="icon icon_edit"></i>修改</a>
+                                   	<if condition="$vo.parent neq '0' and $vo.id neq '4'">
+                                   	<a href="javascript:;" onclick="del(this,'Category',{$vo.id})";><i class="icon icon_x"></i>删除</a>
+									</if>
+                                </td>
+                            </tr>
+							</volist>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End tableMod -->       
+	</div>
+</body>
+</html>

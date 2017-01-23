@@ -1,0 +1,105 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<script type="text/javascript">
+		$(function(){
+			//表单验证
+			$("#form1").submit(function (){
+				if($("#title").val() == ''){
+					alert('请填写单页标题');
+					$("#title").focus();
+					return false;
+				}	
+			})
+		})
+		
+</script>
+<body class="main">
+ 	<div class="subTit">
+               <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">单页</a>&gt;<a href="javascript:;">{$title_type}单页</a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">{$title_type}单页</div>
+                    <form name="form1" id="form1" enctype="multipart/form-data" method="post" action="">
+                        <ul>
+                            <li>
+                                <label>单页标题：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="title" name="title" style="width:637px;" value="{$info.title}" <if condition="$info.system eq '1'">readonly</if> />
+                                    <span>(title)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                            <li>
+                                <label>图片：</label>
+                                <div class="item_cont">
+                                    <input type="file" class="txt" id="img" name="img" size="35"/>
+                                     <if condition='$info.img neq ""'><a href="__ROOT__/<?php echo C('UPLOAD_DIR'); ?>{$info.img}" target="_black">查看图片</a></if>
+                                     <span>(img)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                            <li>
+                                <label>关键字：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id='keywords' name="keywords" style="width:637px;" value="{$info.keywords}" />
+                                    <span>(keywords)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                            <li>
+                                <label>载入页面：</label>
+                                <div class="item_cont">
+                                    <input type="text" name="www" class="txt" value="{$info.www}" style="width:637px;" title="单页载入的页面放入Custom目录下" />
+                                    <span>(www)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+
+                            <li>
+                                <label>简介：</label>
+                                <div class="item_cont">
+                                    <textarea name="description" id="description" style="width:637px;" rows="10" class="txt"  >{$info.description}</textarea>
+                                    <span>(description)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                            <li>
+                                <label>单页内容：</label>
+                                <div class="item_cont">
+                                     <include file="Public:content" />
+                                     <span>(content)</span>
+                                </div>
+                                 
+                                 <div class="clear2"></div>
+                            </li>
+                             <li>
+                                <label>排序：</label>
+                                <div class="item_cont">
+                                    <input type="number" id="order" name="order"  min="0" max="255" step="1" value="<if condition="$info.order neq ''">{$info.order}<else />255</if>" class="txt"/>
+                                    <span>(order)</span>
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 	<input type="hidden" id="img" name="img" value="{$info.img}" />
+                                 	<input type="hidden" id="time" name="time" value="{$info.time}" />
+                                 	<input type="hidden" id="click" name="click" value="{$info.click}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                                <div class="clear2"></div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

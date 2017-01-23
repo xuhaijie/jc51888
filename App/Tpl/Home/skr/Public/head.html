@@ -1,0 +1,68 @@
+
+<meta charset="UTF-8">
+	<title>{$title}</title>
+<base href="__APP__/">
+	<meta name="keywords" content="{$web_keywords}">
+	<meta name="description" content="{$web_description}">
+	<meta http-equiv="x-ua-compatible" content="ie-edge,chrome=1"><!--//低版本IE支持CSS3属性-->
+	<if condition="$config.switch_mbaidu eq '1'">
+	<link rel="alternate" type="application/vnd.wap.xhtml+xml" media="handheld" href="http://{$config.web_url}/m/"/> 
+	</if>
+	<script src="__TMPL__Public/js/jquery1.8.js"></script>
+	<script src="__TMPL__Public/js/pic.js"></script>
+	<link rel="stylesheet/less" type="text/css" href="__TMPL__Public/css/style.css">
+	<link rel="stylesheet/less" type="text/css" href="__TMPL__Public/css/animate.min.css">
+	<!--[if lte IE 7]><script src="__TMPL__Public/css/lte-ie7.js"></script><![endif]-->
+	<!-- <link rel="stylesheet" href="__TMPL__Public/Css/skrles.css?v=<php>echo time();</php>"> -->
+	<link rel="stylesheet/less" type="text/css" href="__TMPL__Public/css/skrles.less">
+	<script src="__TMPL__Public/css/less.js" type="text/javascript"></script>
+	<script src="__TMPL__Public/js/sky.js" type="text/javascript"></script>
+    <script src="__TMPL__Public/js/wow.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__TMPL__Public/js/selectivizr.js"></script><!--//低版本IE支持CSS3属性-->
+<script type="text/javascript" src="__TMPL__Public/js/superslide.2.1.js"></script><!--//大图效果-->
+<script>
+	document.createElement("section");
+	document.createElement("article");
+	document.createElement("footer");
+	document.createElement("header");
+	document.createElement("hgroup");
+	document.createElement("nav");
+	document.createElement("menu");
+</script>
+<script>
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+    };
+</script>
+
+
+	<script>
+		$(function() {
+			var $nav=$("#Nav-1"),
+				$lido=$(".{$lid['name']}{$lid['id2']}"),
+				$sfl=$("#S-fl");
+				$yido=$("#Nav-1").find('>li').eq({$yid});
+			$yido.addClass("lon");
+			gezong($yido,$nav);
+
+			if($lido){
+				$lido.addClass("lon");
+				gezong($lido,$sfl);
+			}
+			
+			function gezong ($a,$b) {
+				$b.find(">li").hover(function(){
+					var $this=$(this);
+						$a.removeClass("lon");
+						$this.addClass("lon");
+				},function(){
+					var $this=$(this);
+						$this.removeClass("lon");
+						$a.addClass("lon");
+				});
+			}
+		});
+	</script>
+{$config.code_head}
+
+

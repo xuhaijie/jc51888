@@ -1,0 +1,140 @@
+<tagLib name="html"/>
+<include file="Skr:header"/>
+<body class="main">
+<script type="text/javascript">
+    var json_type={$json_type},
+    type="{$type.types}";
+</script>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            
+        </div>
+            
+        <div class="panel-body">
+            <div class="well">
+                <div id="Fenlei">
+                     <div class="panel panel-primary im-tab" data-vid="{$type.id}">
+                        <div id="Fudon"><button class="btn btn-xs" value="1" title="增加" data-toggle="modal" data-target="#myModal">+</button><button value="0" class="btn btn-xs dropdown">*
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" data-cz="1" href="#">删除子分类</a></li>
+                            <li role="presentation"><a role="menuitem" data-cz="2" href="#">删除当前分类(包括子类)</a></li>
+                        </ul>
+                        </button></div>
+                        <div class="panel-heading"><h3 class="panel-title text-center" data-vname="{$type.name}">{$type.name}</h3></div>
+                        <div class="panel-body">
+                            <?php
+                                function xhtype($type,$category)
+                                {
+                                    foreach ($type['son'] as $key => $value) {
+                                        $ns.='<div class="panel panel-primary im-tab" data-vid="'.$value['id'].'">';
+                                        $ns.='<div class="panel-heading"><h3 class="panel-title text-center" data-vname="'.$value['name'].'">'.$value['name'].'</h3></div><div class="panel-footer off">';
+                                        $ns.='<form role="form" data-vid="'.$value['id'].'">
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="control-label">父类:</label>
+                                                <div>
+                                                    <select name="pid" class="form-control"></select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="control-label">分类名称:</label>
+                                                <div>
+                                                  <input type="text" class="form-control" name="name" placeholder="分类名称" value="'.$value['name'].'">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="control-label">排序:</label>
+                                                <div>
+                                                  <input type="number" name="order" min="0" step="1" data-vval="'.$value['order'].'" value="'.$value['order'].'" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="control-label">对应ID:</label>
+                                                <div>
+                                                  <input type="number" name="aid" min="0" step="1" data-vval="'.$value['aid'].'" value="'.$value['aid'].'" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary btn-lg" value="提&nbsp;交"/>
+                                                <input type="reset" class="btn btn-warning btn-lg" value="重&nbsp;置" />
+                                            </div>
+                                        </form></div>';
+                                        if($value['son']){
+                                            $ns.='<div class="panel-body">'.xhtype($value,$category).'</div>';
+                                        }
+                                        $ns.='</div>';
+                                    }
+                                    return $ns;
+                                }
+                                echo xhtype($type,$category);
+                            ?>
+
+                        </div><!-- /.panel-body -->
+                        
+                    </div><!-- /.panel-primary -->
+                    <div class="clear2"></div>
+                </div><!-- /#Fenlei -->
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">新增分类</h4>
+                      </div>
+                      <div class="modal-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">父类:</label>
+                                    <div>
+                                        <select name="pid" class="form-control"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class=" control-label">分类名称:</label>
+                                    <div class="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                               <input type="checkbox"  name="onnum" title="批量创建分类开关：分类名称用英文 , 隔开。列如：分类1,分类2,分类3">
+                                            </span>
+                                            <input type="text" class="form-control" name="name" placeholder="分类名称" value="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">排序:</label>
+                                    <div>
+                                      <input type="number" name="order" min="0" step="1" value="255" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">对应ID:</label>
+                                    <div>
+                                      <input type="number" name="aid" min="0" step="1" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <input type="submit" style="position: absolute;z-index:-10;" value="提&nbsp;交"/>
+                            </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="Cj">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+            </div>
+        </div>
+    </div> 
+<load href="__PUBLIC__/js/fenlei.js" />
+<include file="Skr:footer"/>
+</body>
+</html>

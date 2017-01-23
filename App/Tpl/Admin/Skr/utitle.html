@@ -1,0 +1,73 @@
+<tagLib name="html"/>
+<include file="Skr:header"/>
+<script type="text/javascript">	
+		$(function(){
+			$("#form1").submit(function (){
+				if($("#title").val()!=''){
+				    if(confirm('确认输入参数配置正确?')){
+					    return true;
+				    }else{
+					    return false;
+				    }
+				}
+				else{
+					alert('新标题名不允许为空');
+					return false;
+				}
+			})
+		})
+</script>
+<body class="main">
+  <div class="panel panel-default">
+               
+    <div class="panel-heading">
+        <a href="javascript:;">产品</a>&gt;<a href="javascript:;">{$title_type}产品</a>
+    </div>
+            
+    <div class="panel-body">
+      <div class="well">
+       <div class="alert alert-danger">当前数字变量：<strong>%1$s</strong>,当前分类变量：<strong>%2$s</strong>,原始标题变量：<strong>%3$s</strong></div>
+        <form class="form-horizontal" action="" method="post" id="form1" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="" class="col-sm-1 control-label">产品类别：</label>
+              <div class="col-sm-2">
+                  <html:select options='category' selected='selected' name="pid" id="pid" style="form-control" />
+                  <span>是否修改子类：<input type="checkbox" class="" name="sf"></span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="col-sm-1 control-label">新标题名：</label>
+              <div class="col-sm-2">
+                  <input type="text" class="form-control" id="title" name="title"  placeholder="请输入新标题名" />
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="col-sm-1 control-label">数字个数：</label>
+              <div class="col-sm-2">
+                  <input type="number" id="dig" name="dig" min="0" step="1" value="0" class="form-control"/>
+              </div>
+          </div>
+
+           <div class="form-group">
+              <label for="" class="col-sm-1 control-label">起始数字：</label>
+              <div class="col-sm-2">
+                  <input type="number" id="origi" name="origi" min="0" step="1" value="1" class="form-control"/>
+              </div>
+          </div>
+          
+          <div class="form-group" style="text-align: center;">
+            <div class="col-sm-2">
+              <input type="submit" class="btn btn-primary btn-lg" value="提&nbsp;交" />
+              <input type="reset" class="btn btn-warning btn-lg" value="重&nbsp;置" />
+            </div>
+          </div>
+
+        </form>
+      </div> <!-- /.well -->
+    </div> <!-- /.panel-body -->
+  </div>  <!-- /.panel panel-default -->
+<include file="Skr:footer"/>
+</body>
+</html>

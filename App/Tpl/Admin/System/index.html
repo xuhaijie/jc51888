@@ -1,0 +1,38 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<body class="main">
+ 	<div class="subTit">
+      <div class="tit">
+          <a href="javascript:;">系统</a>&gt;<a href="javascript:;">系统设置</a>
+      </div>
+      </div>
+      <div class="content">
+          <div class="formMod">
+              <div class="tit"><a href="__GROUP__/System/Index/t/1" <if condition="$group eq '1'">class="current"</if>>基础设置 </a><a href="__GROUP__/System/Index/t/4" <if condition="$group eq '4'">class="current"</if>>高级设置</a><a href="__GROUP__/System/Index/t/3">地图设置</a></div>
+              <form action="" method="post"  enctype="multipart/form-data">
+                  <ul>
+                   <volist name="list" id="vo" empty="$empty">
+                       <li>
+                           <label for="name">{$vo.name}：</label>
+                           <div class="item_cont" style="display: table;">
+                           	{$vo.input}
+                           </div>
+                           <span class="remark">{$vo.remark}</span>
+                       </li>
+                   </volist>
+                   <li class="push">
+                       <div class="item_cont">
+                       <if condition="$info.id neq ''">
+                       	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                       	<input type="hidden" id="type" name="type" value="{$info.type}" />
+                      	</if>
+                           <input type="submit" class="submit" value="提&nbsp;交" />
+                           <input type="reset" class="reset" value="重&nbsp;置" />
+                       </div>
+                   </li>
+                  </ul>
+              </form>
+          </div>
+      </div>
+</body>
+</html>

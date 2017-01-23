@@ -1,0 +1,47 @@
+<switch name="MODULE_NAME" >
+	<case value="Company"> <!-- 关于我们 -->
+		<div class="title"><h4>关于我们<span>Company</span></h4><span class="right"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;关于我们</span></div>
+	</case>
+
+	<case value="Contact"> <!-- 联系我们 -->
+		<div class="title"><h4>联系我们<span>Contact</span></h4><span class="right f12"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;联系我们</span></div>
+	</case>
+	<case value="Custom"> <!-- 单页 -->
+		<if condition="$category">
+			<div class="title"><h4>{$category}<span>About Us</span></h4><span class="right f12"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;{$category}</span></div>
+		<else/>
+			<div class="title"><h4>{$article['title']}<span>About Us</span></h4><span class="right"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;{$article['title']}</span>
+			</div>
+		</if>
+	</case>
+	<case value="Jobs"> <!-- 招聘 -->
+		<div class="title"><h4>人才招聘<span>Jobs</span></h4><span class="right f12"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;人才招聘</span></div>
+	</case>
+	<case value="Message"> <!-- 在线留言 -->
+		<div class="title"><h4>在线留言<span>Message</span></h4><span class="right f12"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;在线留言</span></div>
+	</case>
+
+	<case value="News"> <!-- 新闻 -->
+		<if condition="$lid.title">
+			<div class="title"><h4>{$list['pid']['name']?$list['pid']['name']:$lid['title']}<span>About Us</span></h4><span class="right"><a href="__ROOT__/">首页</a> &gt;{$list['pid']['name']?$list['pid']['name']:$lid['title']}</span>
+			</div>
+		<else/>
+			<div class="title"><h4>{$list['pid']['name']?$list['pid']['name']:$lid['title']}<span>News</span></h4><span class="right"><a href="__ROOT__/">首页</a> &gt; {$list['pid']['name']?$list['pid']['name']:$lid['title']}</span>
+			</div>
+		</if>
+	</case>
+	<case value="Order"> <!-- 订单 -->
+		<div class="title"><h4>在线订单<span>Order</span></h4><span class="right"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;在线订单</span></div>
+	</case>
+	<case value="Cart"> <!-- 购物车 -->
+		<div class="title"><h4>购物车<span>Products</span></h4><span class="right"><a href="__ROOT__/">首页</a>&nbsp;>&nbsp;购物车</span></div>
+	</case>
+	<case value="Product"> <!-- 产品 -->
+		<if condition="$lid.title">
+		 	<div class="title"><h4><if condition="$lid">{$lid.title}<else/>{$list['pid']['name']?$list['pid']['name']:$lid['title']}</if><span>Product</span></h4><span class="right"><a href="__ROOT__/">首页</a> &gt; <if condition="$lid">{$lid.title}<else/>{$list['pid']['name']?$list['pid']['name']:$lid['title']}</if></span></div>
+		<else/>
+			<div class="title"><h4>{$list['pid']['name']?$list['pid']['name']:$lid['title']}<span>Product</span></h4><span class="right"><a href="__ROOT__/">首页</a> &gt; {$list['pid']['name']?$list['pid']['name']:$lid['title']}</span></div>
+		</if>
+	</case>
+	<default />
+</switch>

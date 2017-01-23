@@ -1,0 +1,46 @@
+
+<div class="header">
+	<div class="top">
+			<a href="__ROOT__/" titile="{$config['name']}">
+				<img  src="__ROOT__/__UPLOAD__/{$config['logo']}" alt="Logo" class="logo wow zoomInLeft">
+			</a>
+		<img src="../Public/images/tel.png" style="float: right;margin-top: 28px;">
+	</div>
+	<div class="header_nav_k">
+		<div class="header_nav">
+			<ul class="nav" id="Nav-1">
+				<?php function scnav($str,$a=1)
+						{
+							$att="";
+							if($str['cun']){
+								$att=$a>1?'<ul style="top:-7px;left:106px;" class="dropdown-menu">':'<ul class="dropdown-menu">';
+				foreach ($str['cun'] as $k => $v) {
+				$hlz=scnav($v,$a+1);
+				$att.=sprintf('<li id="%s" class="dropdown"><a href="__ROOT__/%s">%s</a>',$v['tid'],$v['url'],$hlz?$v['name']:$v['name']);
+					$att.=$hlz;
+					$att.='</li>';
+				}
+				$att.='</ul>';
+				}
+				return $att;
+				}
+				$att='';
+				foreach ($fnav as $k => $v) {
+				$nav_arr= explode(',',$v['name']) ;
+				$hlz=scnav($v);
+				$att.=sprintf('<li id="%s" class="dropdown"><a href="__ROOT__/%s">%s<br /><font class="en">%s</font></a>',$v['tid'],$v['url'],$nav_arr[0],$nav_arr[1]);
+					$att.=$hlz;
+					$att.='</li>';
+				}
+				echo($att);
+				?>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="clear2"></div>
+
+<include file="Public:banner1" />
+
+
+

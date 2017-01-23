@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Public:head" />
+</head>
+
+<body>
+<include file="Public:header" />
+<div class="wrap">
+<div class="main">
+	<div class="main2">
+ 			<div id="Mleft">
+	    		<include file="Public:sidebar" />
+		    </div>
+	       <div id="Mright">
+	    	<div class="article">
+	    	<include file="Public:ntitle" />
+	        <div class="right_main">
+	        	<div class="page-header" style="text-align: center;">
+				  <h3>{$list['title']}<br><small>发布：{$user['username']} 浏览：{$list['click']}次</small></h2>
+				</div>
+              <div class="list-con" style="line-height:25px;">{$list['content']}</div>
+              <include file="Public:prne" />
+	           
+	        </div>
+	        </div>
+	    </div>
+	    <div class="clear2"></div>
+	</div>
+</div>
+</div>
+<include file="Public:footer" />
+</body>
+
+</html>

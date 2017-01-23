@@ -1,0 +1,109 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-uniF488, .icon-uniF489, .icon-heart, .icon-uniF48A, .icon-uniF48B, .icon-home, .icon-pigpens, .icon-pigpent, .icon-pigpenu, .icon-pigpenv, .icon-heart-2, .icon-comment, .icon-chat, .icon-search, .icon-camera, .icon-cog, .icon-music, .icon-type, .icon-checkmark, .icon-cancel, .icon-file, .icon-copy, .icon-sun {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-uniF488:before {
+	content: "\f488";
+}
+.icon-uniF489:before {
+	content: "\f489";
+}
+.icon-heart:before {
+	content: "\e000";
+}
+.icon-uniF48A:before {
+	content: "\f48a";
+}
+.icon-uniF48B:before {
+	content: "\f48b";
+}
+.icon-home:before {
+	content: "\21b8";
+}
+.icon-pigpens:before {
+	content: "\f468";
+}
+.icon-pigpent:before {
+	content: "\f469";
+}
+.icon-pigpenu:before {
+	content: "\f46a";
+}
+.icon-pigpenv:before {
+	content: "\f46b";
+}
+.icon-heart-2:before {
+	content: "\e001";
+}
+.icon-comment:before {
+	content: "\e003";
+}
+.icon-chat:before {
+	content: "\e004";
+}
+.icon-search:before {
+	content: "\e005";
+}
+.icon-camera:before {
+	content: "\e006";
+}
+.icon-cog:before {
+	content: "\e007";
+}
+.icon-music:before {
+	content: "\e008";
+}
+.icon-type:before {
+	content: "\e009";
+}
+.icon-checkmark:before {
+	content: "\e00a";
+}
+.icon-cancel:before {
+	content: "\e00b";
+}
+.icon-file:before {
+	content: "\e00c";
+}
+.icon-copy:before {
+	content: "\e00d";
+}
+.icon-sun:before {
+	content: "\e002";
+}

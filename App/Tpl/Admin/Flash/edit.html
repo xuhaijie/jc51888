@@ -1,0 +1,74 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<script>
+	$(function(){
+		$("#form1").submit(function (){
+			if($("#title").val() == ''){
+				alert('请填写标题');
+				$("#title").focus();
+				return false;
+			}
+			<if condition="$info.id eq ''">
+			if($("#img").attr('value') == ''){
+				alert('请添加图片');
+				$("#img").focus();
+				return false;
+			}
+			</if>
+		})
+	
+	})
+</script>
+<body class="main">
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">{$title_type}轮换图片</div>
+                    <form action="" method="post" enctype="multipart/form-data" id="form1">
+                        <ul>
+                            <li>
+                                <label for="newsSort">标题：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="title" name="title" size="35" value="{$info.title}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsSort">链接：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="link" name="link" size="88" value="{$info.link}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsSort">图片：</label>
+                                <div class="item_cont">
+                                    <input type="file" class="txt" id="img" name="img" size="35" value="{$info.img}"  />
+									<if condition='$info.img neq ""'><a href="__ROOT__/<?php echo C('UPLOAD_DIR');?>{$info.img}" target="_black">查看</a></if>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsSort">排序：</label>
+                                <div class="item_cont">
+                                    <input type="number" id="order" name="order"  min="0" max="255" step="1" value="<if condition="$info.order neq ''">{$info.order}<else />255</if>" class="txt"/>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsSort">开关：</label>
+                                <div class="item_cont">
+                                	<label><input type="radio" name="open" value="1" <if condition='$info.open eq 1'>checked</if> > 开启</label>
+                                	<label><input type="radio" name="open" value="0" <if condition='$info.open eq 0'>checked</if> > 关闭</label>
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

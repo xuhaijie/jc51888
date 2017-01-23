@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<include file="Public:head" />
+	<script src="http://api.map.baidu.com/api?v=1.4"></script>
+	<style>
+		#allmap{width:95%;height:460px;overflow:hidden;margin:20px;border:1px solid black;}
+	</style>
+</head>
+<body>
+	<div class="top_back absolute"></div>
+		<include file="Public:header" />
+		<div class="wrap" id="pjax">
+		<div class="main">
+			<div class="main2">
+				<div id="Mleft">
+		    		<include file="Public:sidebar" />
+			    </div>
+		       <div id="Mright">
+					<div class="article">
+						<include file="Public:ntitle" />
+						<div class="right_main">
+						<div id="allmap">
+							<script>
+								var map = new BMap.Map("allmap");            // 创建Map实例
+								var point = new BMap.Point({$config.baidu_map_x}, {$config.baidu_map_y}); // 创建点坐标
+								map.centerAndZoom(point,15);                 // 初始化地图,设置中心点坐标和地图级别。
+								map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+								
+		                        map.addControl(new BMap.NavigationControl());
+		                        map.addControl(new BMap.ScaleControl());
+		                        map.addControl(new BMap.OverviewMapControl());
+		                        var marker = new BMap.Marker(point);                        
+		                        map.addOverlay(marker);
+		                        var infoWinOpts = {}
+		                        var infoWin = new BMap.InfoWindow(
+		                        	'<include file="Public:ditu"/>',infoWinOpts);
+		                        marker.openInfoWindow(infoWin);
+		                        marker.addEventListener("click", function(){this.openInfoWindow(infoWin);});
+							</script>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear2"></div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:footer" />
+</body>	
+</html>

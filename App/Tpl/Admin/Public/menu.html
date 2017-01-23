@@ -1,0 +1,86 @@
+			<dl class="lay_menu" id="lay_menu">            	
+            	<dt class="item_tit"><a href="javascript:;"><i class="icon icon_page"></i>单页</a></dt>
+                <dd class="item_cont" style="display:none">
+                    <ul>
+                        <li><a  href="__GROUP__/Single" target="main"><i class="icon icon_this"></i>管理单页</a></li>
+                        <li><a  href="__GROUP__/Single/add" target="main"><i class="icon icon_this"></i>新增单页</a></li>
+                    </ul>
+                </dd>
+            	<dt class="item_tit"><a href="javascript:;"><i class="icon icon_article"></i>自助列表</a></dt>
+                <dd class="item_cont" style="display:none">
+                    <ul>
+                        <li><a href="__GROUP__/Article/"  target="main"><i class="icon icon_this"></i>列表</a></li>
+                        <li><a href="__GROUP__/Article/add"  target="main"><i class="icon icon_this"></i>新增</a></li>
+                        <li><a href="__GROUP__/Category/article"  target="main"><i class="icon icon_this"></i>自助分类</a></li>
+                    </ul>
+                </dd>
+            	<dt class="item_tit"><a href="javascript:;"><i class="icon icon_product"></i>产品</a></dt>
+                <dd class="item_cont" style="display:none">
+                    <ul>
+                        <li><a href="__GROUP__/Goods/" target="main"><i class="icon icon_this"></i>产品列表</a></li>
+                        <li><a href="__GROUP__/Goods/add/" target="main"><i class="icon icon_this"></i>新增产品</a></li>
+                        <li><a href="__GROUP__/Category/goods/"  target="main"><i class="icon icon_this"></i>产品分类</a></li>
+                        <li><a href="__GROUP__/Goods/deltd/" target="main"><i class="icon icon_this"></i>产品回收站</a></li>
+                        
+                        <if condition="$switch_order eq '1'" >
+                        <li><a href="__GROUP__/Order/" target="main"><i class="icon icon_this"></i>查看订单</a></li>
+                        <li><a href="__GROUP__/Skr/utitle"  target="main"><i class="icon icon_this"></i>批量重命名</a></li>
+
+                        <li><a href="__GROUP__/Goods/piliang"  target="main"><i class="icon icon_this"></i>批量上传(新版本)</a></li>
+                        <li></li>
+                        <li><a href="__GROUP__/collect"  target="main"><i class="icon icon_this"></i>详情批量采集</a></li>
+                        </if>
+                    </ul>
+                </dd>
+                <if condition="$switch_jobs eq '1'" >
+            	<dt class="item_tit"><a href="javascript:;"><i class="icon icon_join"></i>招聘</a></dt>
+                <dd class="item_cont" style="display:none">
+               	 	<ul>
+                        <li><a href="__GROUP__/Jobs/" target="main"><i class="icon icon_this"></i>招聘岗位</a></li>
+                        <li><a href="__GROUP__/Jobs/add" target="main"><i class="icon icon_this"></i>新增岗位</a></li>
+                        <li><a href="__GROUP__/Category/jobs"  target="main"><i class="icon icon_this"></i>招聘分类</a></li>
+                        <li><a href="__GROUP__/Apply" target="main"><i class="icon icon_this"></i>简历列表</a></li>
+                    </ul>
+                </dd>
+                </if>
+                
+                
+                
+                <!-- 
+                <dt class="item_tit"><a href="javascript:;"><i class="icon icon_join"></i>荣誉资质</a></dt>
+                <dd class="item_cont" style="display:none">
+               	 	<ul>
+                        <li><a href="__GROUP__/Market/addmark" target="main"><i class="icon icon_this"></i>新增</a></li>
+                    </ul>
+                </dd>
+                 -->
+                <if condition="$switch_message eq '1'" >
+            	<dt class="item_tit"><a href="javascript:;"><i class="icon icon_msg"></i>留言</a></dt>
+                <dd class="item_cont" style="display:none">
+                	<ul>
+                       <li><a href="__GROUP__/Message" target="main"><i class="icon icon_this"></i>留言列表</a></li>
+                    </ul>
+                </dd>
+                </if>
+                <dt class="item_tit"><a href="javascript:;"><i class="icon icon_form"></i>Smart</a></dt>
+                <dd class="item_cont" style="display:none">
+                	<ul>
+                        <li><a href="__GROUP__/Smart/optimization" target="main"><i class="icon icon_this"></i>数据优化</a></li>
+                        <li><a href="__GROUP__/Smart/clearcache" target="main"><i class="icon icon_this"></i>更新缓存</a></li>
+                        <li><a href="__GROUP__/Message/weixin" target="main"><i class="icon icon_this"></i>微信互联</a></li>
+                        <li><a href="__GROUP__/Smart/liuliangbao" target="main"><i class="icon icon_this"></i>流量宝</a></li>
+                        <if condition="0" >
+                            <li><a href="__GROUP__/Smart/baidu" target="main"><i class="icon icon_this"></i>移动互联</a></li>
+                        </if>
+                    </ul>
+                </dd>
+                <dt class="item_tit item_end"><a href="javascript:;"><i class="icon icon_sys"></i>系统</a></dt>
+                <dd class="item_cont" style="display:none">
+                    <ul>
+                    	<li><a href="__GROUP__/Index/status"  target="main"><i class="icon icon_this"></i>系统状态</a></li>
+                        <li><a href="__GROUP__/System/" target="main"><i class="icon icon_this"></i>网站设置</a></li>
+                        <li><a href="__GROUP__/Flash/" target="main"><i class="icon icon_this"></i>轮显图片</a></li>
+                    </ul>
+                </dd>
+                <include file="Skr:smenu" />
+            </dl>

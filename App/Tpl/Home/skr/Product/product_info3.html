@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Public:head" />
+</head>
+
+<body>
+	<include file="Public:header" />
+<div class="wrap">
+	<div class="main" id="Cpzs">
+		<div class="main2">
+			<include file="Public:sidebar" />
+		    <div id="Mright">
+		       	<div class="article cpzs">
+		       		<include file="Public:ntitle" />
+			        <div class="right_main">
+			            <div class="div_Image" style="text-align: center"><a target="_blank" href="__ROOT__/__UPLOAD__/{$list['img']}"><img src="__ROOT__/__UPLOAD__/{$list['img']}" alt="{$list['title']}"/></a>
+			            </div>
+			            <h2 class="div_Title">{$list['title']}</h2>
+				        <div class="pro_con">
+				          	<p class="xxsmys">
+								<span class="xxsmwz">详细说明：</span>
+							</p>
+				            <div class="content">{$list['content']}</div>
+				            <include file="Public:prne" />
+				        </div>
+			        </div>
+			    </div>
+	   		</div>
+	   		<div class="clear2"></div>
+	   	</div>
+	</div>
+</div>
+<include file="Public:footer" />
+</body>
+
+</html>
+

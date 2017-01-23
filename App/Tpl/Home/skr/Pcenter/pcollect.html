@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<include file="Public:head" />
+<script>
+function dlcollet(id,e){
+	//发送请求
+	$.getJSON("__APP__"+"/product/ajax/t/sc/id/"+id, function(data){
+			if(data.status == '2')
+			{	
+				$(e).parent().parent('li').hide('slow');;
+			}
+	})
+}	
+</script>
+</head>
+<body class="vip-user">
+	<div class="container">
+		<include file="nav"/>
+		<div class="row-fluid">
+			<div class="span2 well"><include file="pcenter" /></div>
+
+			<div class="span9 well">
+				<div class="alert alert-info title">
+					<h4 class="left">个人收藏</h4>
+						<div class="clear2"></div>
+				</div>
+				<empty name="collects">
+					暂无收藏
+				<else/>
+					<ul class="thumbnails">
+						<volist name="collects" id="vo">
+							<li class="span3">
+								<div class="thumbnail">
+									<img src="__ROOT__/__UPLOAD__/in_{$vo.img}"/>
+									<div class="caption">
+										<h3><a href="__APP__/product/{$vo.id}" >{$vo.title}</a></h3>
+										<p>收藏时间：{$vo.cltime}</p>
+										<a  onclick="dlcollet({$vo.id},this)" class="btn">删除</a>
+									</div>
+								</div>
+							</li>
+						</volist>
+					</ul>
+				</empty>	
+				
+			</div><!-- /.span9 -->
+		</div><!-- /.row-fluid -->
+	</div><!-- /.container-fluid -->
+	<div class="clear2"></div>
+</body>
+
+</html>

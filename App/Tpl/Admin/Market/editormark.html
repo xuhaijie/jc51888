@@ -1,0 +1,124 @@
+<tagLib name="html"/>
+<include file="Public:header" />
+<load href="../Public/js/xheditor/xheditor.min.js" />
+<load href="../Public/js/xheditor/xheditor_lang/zh-cn.js" />
+<script type="text/javascript">
+		// 对富文本编辑插件进行封装
+		$.fn.extend( {
+			richText : function(option) {
+				var dfop = {
+						tools : 'Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,Link,Unlink,Source,'+
+						'SelectAll,Removeformat,Table,|,Align,List,Outdent,Indent,|,Img,Flash,Media,Source,Fullscreen',
+						skin : 'default',
+						height:300,
+						width:650,
+						html5Upload:false,
+						upImgUrl:'',
+						upImgExt:"jpg,jpeg,gif,png",
+						upLinkUrl:url+"/Admin/index/hxeditupload",upLinkExt:"zip,rar,txt",upImgUrl:url+"/Admin/index/hxeditupload",upImgExt:"jpg,jpeg,gif,png",upFlashUrl:url+"/Admin/index/hxeditupload",upFlashExt:"swf",upMediaUrl:url+"/Admin/index/hxeditupload",upMediaExt:"wmv,avi,wma,mp3,mid"
+				}; 
+				
+				$.extend(dfop,option);
+				$(this).xheditor(dfop);
+			}
+		});
+		
+		
+		$(function(){
+			$("#content").richText();
+			$("#form1").submit(function (){
+				if($("#title").val() == ''){
+					alert('请填写产品名称');
+					$("#title").focus();
+					return false;
+				}
+/*
+				if($("#img").val() == ''){
+					alert('请添加产品图片');
+					$("#img").focus();
+					return false;
+				}	
+*/		
+			})
+	
+		})
+</script>
+<body class="main">
+ 	<div class="subTit">
+                <include file="Public:search" />
+                <div class="tit">
+                    <a href="javascript:;">产品</a>&gt;<a href="javascript:;">{$title_type}产品</a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="formMod">
+                    <div class="tit">{$title_type}产品</div>
+                    <form action="" method="post" id="form1" enctype="multipart/form-data">
+                        <ul>
+                            <li>
+                                <label for="newsSort">产品类别：</label>
+                                <div class="item_cont">
+                                    <html:select options='category' selected='selected' name="pid" id="pid" style="txt" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">产品名称：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id="title" name="title" style="width:637px;" value="{$info.title}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsId">产品图片：</label>
+                                <div class="item_cont">
+                                    <input type="file" id="img" name="img" size="35" class="txt"/>
+									<if condition='$info.img neq ""'><a href="__ROOT__/<?php echo C('UPLOAD_DIR'); ?>{$info.img}" target="_black">查看图片</a></if>
+                                </div>
+                            </li>
+                             <li>
+                                <label for="price">价格：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=keywords name="price" style="width:637px;" value="{$info.price}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="keywords">关键字：</label>
+                                <div class="item_cont">
+                                    <input type="text" class="txt" id=keywords name="keywords" style="width:637px;" value="{$info.keywords}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="Description">简介：</label>
+                                <div class="item_cont">
+                                    <textarea name="description" id="description" style="width:637px;" rows="10" class="txt"  >{$info.description}</textarea>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="newsCont">产品描述：</label>
+                                <div class="item_cont">
+                                    <textarea  style="width:637px;" rows="10" class="txt" id="content" name="content">{$info.content}</textarea>
+                                </div>
+                            </li>
+                             <li>
+                                <label for="newsId">排序：</label>
+                                <div class="item_cont">
+                                    <input type="number" id="order" name="order"  min="0" max="255" step="1" value="<if condition="$info.order neq ''">{$info.order}<else />255</if>" class="txt"/>
+                                </div>
+                            </li>
+                            <li class="push">
+                                <div class="item_cont">
+                                 <if condition="$info.id neq ''">
+                                 	<input type="hidden" id="id" name="id" value="{$info.id}" />
+                                 	<input type="hidden" id="img" name="img" value="{$info.img}" />
+                                 	<input type="hidden" id="time" name="time" value="{$info.time}" />
+                                 	<input type="hidden" id="click" name="click" value="{$info.click}" />
+                                 </if>
+                                    <input type="submit" class="submit" value="提&nbsp;交" />
+                                    <input type="reset" class="reset" value="重&nbsp;置" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

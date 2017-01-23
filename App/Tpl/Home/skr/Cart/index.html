@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<include file="Public:head" />
+<script >
+var app="__APP__";
+</script>
+<load href="__TMPL__Public/js/getarea.js" />
+<script>
+	$(document).ready(function() {
+		$("#online_order").submit(function() {
+			var $this=$(this),bol=true;
+			$this.find('input[data-ts]').each(function(){
+				var $this=$(this);
+				if($.trim($this.val())==''){
+					alert($this.data('ts'));
+					$this.focus();
+					bol=false;
+					return bol;
+				}
+			});
+			return bol;
+		});
+	})
+	function deletecart(context) {
+		var data = "t=" + $(context).attr('rel');
+		$.ajax({
+			type : "post",
+			url : "{:U('cart/delete')}",
+			data : data,
+			success : function(msg) {
+				if (msg == '1') {
+					$(context).parents('p').remove();
+					gettprice();
+				}
+				//alert('加入购物车成功');
+			} //操作成功后的操作！msg是后台传过来的值
+		});
+
+	}
+	function gettprice() {
+		$.ajax({
+			type : "post",
+			url : "{:U('cart/ajax_getprice')}",
+			success : function(msg) {
+				$('#ttprice').html(msg);
+				//alert('加入购物车成功');
+			} //操作成功后的操作！msg是后台传过来的值
+		});
+	}
+</script>
+</head>
+
+<body>
+	<include file="Public:header" />
+		<div class="main">
+			<div class="main2">
+	 			<div id="Mleft">
+		    		<include file="Public:sidebar" />
+			   </div>
+			   <div id="Mright">
+			    	<div class="article">
+			    		<include file="Public:ntitle" />
+			    		<div class="right_main">
+			    		<div class="page-header">
+						  <h1 style="text-align: center;">购物车</h1>
+						</div>
+							<div id="newsContent">
+								<volist name="cartlist" id="vo">
+								<p class="xxsmys">
+									标题：{$vo.title}&nbsp;&nbsp;<span style="color: red;">单价:{$vo.price}元</span>&nbsp;&nbsp;购买数量：{$vo.bynum}&nbsp;&nbsp;<a
+										href="javascript:void(0)" onclick="deletecart(this)"
+										rel="{$vo.id}_{$vo.bynum}">删除</a>
+								</p>
+								</volist><!-- 
+								<p>
+									总金额：<span style="color: red; font-weight: bold; font-size: 20px;"
+										id="ttprice">{$total}</span>元&nbsp; <a href="javascript:void(0)"
+										onclick="alert('结算!')">结算</a>
+								</p> -->
+							</div>
+							<form action="{:U('Order/add_order')}" method="post" class="form-horizontal" id="online_order">
+
+								<div class="control-group">
+							      <label class="control-label" for="input01">联系人：</label>
+							      <div class="controls">
+							        <input data-ts="请输入联系人！" type="text" class="" name="name" placeholder="请输入联系人..."/>
+							        <p class="help-block"></p>
+							      </div>
+							    </div>
+								
+								<div class="control-group">
+							      <label class="control-label" for="input01">电话：</label>
+							      <div class="controls">
+							        <input data-ts="请输入电话！" type="text" class="" name="tel" placeholder="请输入电话..."/>
+							        <p class="help-block"></p>
+							      </div>
+							    </div>
+
+							    <div class="control-group">
+							      <label class="control-label" for="input01">地址：</label>
+							      <div class="controls">
+							        <input data-ts="请输入地址！" type="text" class="" name="address" placeholder="请输入详细地址..."/>
+							        <p class="help-block"></p>
+							      </div>
+							    </div>
+									
+								<div class="control-group">
+							      <label class="control-label" for="input01">邮箱：</label>
+							      <div class="controls">
+							        <input type="text" class="" name="email" placeholder="请输入邮箱地址..."/>
+							        <p class="help-block"></p>
+							      </div>
+							   </div>
+
+							   <div class="control-group">
+							      <label class="control-label" for="input01">备注：</label>
+							      <div class="controls">
+							        <input type="text" class="" name="notes" placeholder="备注"/>
+							        <p class="help-block"></p>
+							      </div>
+							   </div>
+
+							   <div class="control-group">
+							      <label class="control-label" for="input01">验证码：</label>
+							      <div class="controls">
+							        <input type="text" id="captcha" autocomplete="off" name="captcha" class="span1" maxlength="4"/><img src="__APP__/Base/verify" alt="" title="点击更换验证码" style="cursor: pointer; vertical-align: -6px; margin-left: 5px;"
+											onclick="this.src='__APP__/Base/verify?t='+Math.random();">
+							      </div>
+							   </div>
+
+							    <div class="control-group">
+							      <label class="control-label" for="input01">优惠度：{$faver}<br>总金额：{$total}元<br>会员价：{$total}元</label>
+							      <div class="controls">
+							        <input type="submit" class="btn" name="sub" value="马上订购"/>
+							      </div>
+							   </div>
+
+							</form>
+			        </div> <!-- /.right_main -->
+					</div> <!-- /.article -->
+			</div><!-- /#Mright -->
+		</div><!-- /#main2 -->
+	</div><!-- /#main -->
+	<div class="clear2"></div>
+	<include file="Public:footer" />
+</body>
+</html>

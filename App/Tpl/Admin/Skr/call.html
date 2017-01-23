@@ -1,0 +1,48 @@
+<tagLib name="html"/>
+<include file="Skr:header"/>
+<body class="main" id="Call">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            
+        </div>
+            
+        <div class="panel-body">
+            <div class="well">
+                <div class="table-responsive">
+                  <table class="table panel panel-default table-bordered table-hover" id="call-table">
+                    <thead>
+                      <tr>
+                        <th width="100px" title="无用">ID</th>
+                        <th title="页面调用时候用的名称">输出名</th>
+                        <th width="100px" title="调用的产品或文章个数!(个数为0的时候表示调用当个!)">个数</th>
+                        <th width="170px" title="产品：goods,文章：goods">取值表(goods,article)</th>
+                        <th width="150px" title="需要调用内容的所在类别ID,多个分类可用','分隔开！(个数为0时这里填写单个文章或产品ID!)">类别ID</th>
+                        <th width="190px">所属页面(主页:0、公共:1)</th>
+                        <th width="190px">是否查询子类(是:1、否:0)</th>
+                        <th width="100px">删除</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <volist name="list" id="v">
+                        <tr data-qk="up">
+                          <td data-name="id">{$v.id}</td>
+                          <td data-name="name" data-xg="yse">{$v.name}</td>
+                          <td data-name="count" data-xg="yse">{$v.count}</td>
+                          <td data-name="table" data-xg="yse">{$v.table}</td>
+                          <td data-name="ids" data-xg="yse">{$v.ids}</td>
+                          <td data-name="page" data-xg="yse">{$v.page}</td>
+                          <td data-name="switch" data-xg="yse">{$v.switch}</td>
+                          <td><button class="btn btn-danger" value="0">X</button></td>
+                        </tr>
+                      </volist>
+                    </tbody>
+                </table>
+              </div><!-- /.table-responsive -->
+              <button class="btn btn-primary" id="Insert">新增</button>
+            </div> <!-- /.well -->
+        </div><!-- /.panel-body -->
+    </div> <!-- /.panel panel-default -->
+<load href="__PUBLIC__/js/call.js" />
+<include file="Skr:footer"/>
+</body>
+</html>

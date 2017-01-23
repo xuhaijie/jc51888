@@ -1,0 +1,14 @@
+<if condition="$config['kefu_qq'][0]['name']">
+<div id="dudong" class="well">
+	<volist name="config.kefu_qq" id="vo">
+	{$vo.name}:<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$vo.qq}&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:{$vo.qq}:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
+	</volist>
+</div>
+<load  href="__TMPL__Public/Js/scrollfollow/jquery.scrollFollow.js"/>
+<script type="text/javascript">
+	$(function() {
+		$("#dudong").css({"position":"absolute","left":"10px","z-index":"100"}).scrollFollow({offset:60});
+	});
+</script>
+
+</if>

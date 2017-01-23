@@ -1,0 +1,87 @@
+<tagLib name="html"/>
+<include file="Skr:header"/>
+
+<body class="main">
+  <div class="panel panel-default">
+       
+        <div class="panel-heading">
+            <a href="javascript:;">产品</a>&gt;<a href="javascript:;">批量上传产品(新版)</a>
+        </div>
+            
+        <div class="panel-body">
+            <div class="well min-2">
+                
+                <form enctype="multipart/form-data" action="" method="POST" class="definewidth m20">
+          <table class="table table-bordered table-hover definewidth m10">
+            <tr>
+              <td class="tableleft" width="120">产品类别</td>
+              <td>
+              <div class="form-group">
+                  <div class="col-sm-3">
+                    <html:select options='category' selected='selected' name="pid" id="pid" style="form-control" />
+                  </div>
+              </div>
+              <!-- <div class="col-sm-3">
+                  <html:select options='category' selected='classid' name="pid" id="pid" style="txt" />
+              </div> -->
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft" width="120">文件命名</td>
+              <td>
+                <div class="col-sm-2">
+                  <input type="radio" name="titleBy" value="1" checked=""> 根据文件名
+                  <input type="radio" name="titleBy" value="0"> 统一命名
+                </div>
+              </td>
+            </tr>
+            <tr style="display:none;" id="title" >
+              <td class="tableleft" width="120" >命名规则</td>
+              <td>
+                <div class="col-sm-2">
+                  <input id="titleRule" type="text" name="title" class="form-control" style="width:250px;" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">批量上传</td>
+              <td>
+                <input id="file-5" class="file" type="file" multiple data-preview-file-type="any">
+              </td>
+            </tr>
+            </table>
+                    <p style="color: red;text-indent: 10px;">注意：图片大小不得超过800KB，200KB左右最佳。</p>
+      </form>
+      <script type="text/javascript">
+      $(function(){
+        $('input[name=titleBy]').change(function() {
+          if ($(this).val()==1) {
+            $('#title').hide();
+            $('p.notice').show();
+          }else{
+            $('p.notice').hide();
+            $('#title').show();
+          };                   
+        }); 
+      })
+
+    </script>
+    <script>
+      $("#file-5").fileinput({
+          uploadUrl: "{:U('piliang1')}", // you must set a valid URL here else you will get an error
+          allowedFileExtensions : ['jpg', 'png','gif'],
+          overwriteInitial: false,
+          maxFileSize: 1000,
+          slugCallback: function(filename) {
+              return filename.replace('(', '_').replace(']', '_');
+          }
+    });
+    </script>
+            </div>
+        </div>
+    </div>  
+
+<load href="__PUBLIC__/js/upgoods.js" />
+<include file="Skr:footer"/>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div style="text-align:left;color:#1A6DAF;"><for start="1" end="9" >
+		<switch name="i" >
+		<case value="1"><p>{$config['web_name']}</p></case>
+		<case value="2"><p>联系人：{$config['linkman']}</p></case>
+		<case value="0"><p>电话：{$config['tel']}</p></case>
+		<case value="3"><p>手机：{$config['mobile']}</p></case>
+		<case value="0"><p>传真：{$config['fax']}</p></case>
+		<case value="4"><p>地址：{$config['address']}</p></case>
+		<case value="0"><p>网址：<a href="{$config['web_url']}" target="_blank">{$config['web_url']}</a></p></case>
+		<case value="0"><p>备案：{$config['icp_num']}</p></case>
+		<case value="0"><p>邮箱：<a href="mailto:{$config['email']}">{$config['email']}</a></p></case>
+		<default />
+		</switch>
+	</for>
+</div>

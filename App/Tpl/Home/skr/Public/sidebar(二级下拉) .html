@@ -1,0 +1,58 @@
+<div class="fenlei">
+    <div class="fenlei-dh"></div>
+    <div class="fenlei-nr">
+        <ul>
+            <volist name="type" id="vo" >
+                <volist name="vo.son" id="vo1" offset="0">
+                    <li class="li1">
+                        <a class="a1 btn-1">{$vo1.name}<i>》</i></a>
+                        <ul>
+                            <volist name="vo1.son" id="vo2">
+                                <li class="li2"><a class="btn-0" href="__APP__/product/type/{$vo2.id}">{$vo2.name}</a></li>
+                            </volist>
+                        </ul>
+                    </li>
+                </volist>
+            </volist>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(".fenlei-nr .li1 ul").hide();
+    $(".fenlei-nr .li1:last-child ul").show();
+    $(function(){
+        $(".fenlei-nr ul .li1 .a1").toggle(function() {
+            $(this).next("ul").slideDown();
+            $(this).find("i").addClass("xuanzhaun");
+        },function(){
+            $(this).next("ul").slideUp();
+            $(this).find("i").removeClass("xuanzhaun");
+        })
+    })
+</script>
+
+.fenlei{float: left;width: 187px;background: url("../images/fenlei-bg.jpg");}
+.fenlei-dh{background: url("../images/fenlei-dh.jpg")no-repeat;width: 187px;height: 65px;}
+.fenlei-nr{padding:0 7px;
+ul{
+.li1{
+.a1{background:rgba(255,255,255,.5);width: 173px;height: 45px;display: block;line-height: 45px;text-indent:15px;font-size: 18px;margin-bottom: 5px;cursor: pointer;
+i{float: right;margin-right: 15px; .transition(.4s);
+}
+&:hover{color: #fff;
+i{color: #fff;}
+}
+}
+ul{
+.li2{
+a{background:rgba(255,255,255,.5);width: 173px;height:39px;display: block;line-height:39px;text-indent:15px;font-size: 14px;margin-bottom: 2px;}
+}
+.li2:hover{
+a{color: #fff;}
+}
+}
+}
+}
+}
+.xuanzhaun{transform: rotate(90deg);}
